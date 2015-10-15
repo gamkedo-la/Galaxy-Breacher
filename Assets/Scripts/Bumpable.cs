@@ -5,7 +5,7 @@ public class Bumpable : MonoBehaviour {
 	void OnCollisionEnter (Collision coll) {
 		/*Vector3 posDiff = coll.transform.position - transform.position;
 		transform.position += posDiff.normalized * 20.0f;*/
-		Debug.Log (gameObject.name + " BUMPED OFF "+ coll.gameObject.name);
+		// Debug.Log (gameObject.name + " BUMPED OFF "+ coll.gameObject.name);
 
 		Vector3 avgNormal = Vector3.zero;
 

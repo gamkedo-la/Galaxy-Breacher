@@ -3,6 +3,7 @@ using System.Collections;
 
 public class Shootable : MonoBehaviour {
 	public int healthLimit = 0; // 0 invulnerable, still case for player while testing
+	public bool reportDeath = false;
 	int timesHit = 0;
 
 	public void DamageThis() {
@@ -11,6 +12,9 @@ public class Shootable : MonoBehaviour {
 		Debug.Log (gameObject.name + " HAS BEEN HIT "+ timesHit+" TIMES!");
 		if(healthLimit == 0) {
 			// Debug.Log ("KA BOOM");
+			if(reportDeath) {
+				SpawnTicketBooth.instance.reportDeath();
+			}
 			GameObject.Instantiate(
 				PlayerControl.instance.explodePrefabGeneral,
 				transform.position, Quaternion.identity);

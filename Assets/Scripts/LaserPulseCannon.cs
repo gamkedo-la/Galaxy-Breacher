@@ -8,6 +8,9 @@ public class LaserPulseCannon : MonoBehaviour {
 	public float ROF = 0.2f;
 	private Transform laserKeeper;
 
+	public bool needsLOS = true;
+	public bool spawnLimited = false;
+
 	void Start() {
 		StartCoroutine(FireLaser());
 		laserKeeper = GameObject.Find("LaserKeeper").transform;
@@ -15,25 +18,27 @@ public class LaserPulseCannon : MonoBehaviour {
 
 	IEnumerator FireLaser() {
 		while(true) {
+			RaycastHit rhInfo;
+			int layerMask = ~(1<<9);
 			yield return new WaitForSeconds(ROF);
 
-			int layerMask = ~(1<<9);
-			RaycastHit rhInfo;
+			if(needsLOS) {
 
-			if(Physics.Raycast( transform.position,
-			                   PlayerControl.instance.transform.position-transform.position,
-			                   out rhInfo,
-			                   5000.0f,
-			                   layerMask)) {
-				if(rhInfo.collider.tag != "Player") {
-					//Debug.Log ("LOOKING AT SOMETHING ELSE");
-					continue; // view is blocked
-				} /*else {
-					Debug.Log ("CAN SEE FIRE AT WILL");
-				}*/
-			} else { // player was out of range or otherwise nothing was found
-				//Debug.Log ("DID NOT FIND PLAYER");
-				continue;
+				if(Physics.Raycast( transform.position,
+				                   PlayerControl.instance.transform.position-transform.position,
+				                   out rhInfo,
+				                   5000.0f,
+				                   layerMask)) {
+					if(rhInfo.collider.tag != "Player") {
+						//Debug.Log ("LOOKING AT SOMETHING ELSE");
+						continue; // view is blocked
+					} /*else {
+						Debug.Log ("CAN SEE FIRE AT WILL");
+					}*/
+				} else { // player was out of range or otherwise nothing was found
+					//Debug.Log ("DID NOT FIND PLAYER");
+					continue;
+				}
 			}
 
 			float missBy = inaccuracyArcMax;
@@ -41,11 +46,27 @@ public class LaserPulseCannon : MonoBehaviour {
 			missQuat = missQuat * Quaternion.AngleAxis(Random.Range(-missBy,missBy),Camera.main.transform.right);
 			Quaternion aimToFire = fireFromPos.rotation;
 			aimToFire = missQuat * aimToFire;
-			Vector3 skipBarrel = transform.up;
-			
-			GameObject newGO = (GameObject)GameObject.Instantiate( laserPrefab, fireFromPos.position
-			                       - missQuat * skipBarrel * 30.0f, aimToFire);
-			newGO.transform.parent = laserKeeper;
+			Vector3 skipBarrel = transform.forward;
+
+			if(needsLOS && Physics.Raycast( fireFromPos.position,
+			                   Vector3.zero + missQuat * skipBarrel * 200.0f,
+			                   out rhInfo,
+			                   5000.0f,
+			                   layerMask) && rhInfo.collider.tag != "Player") {
+				// Debug.Log ("CANNON MUZZLE BLOCKED BY " + rhInfo.collider.name);
+				continue;
+			}
+
+			if(spawnLimited==false || SpawnTicketBooth.instance.requestSpawnTicket()) {		
+				GameObject newGO = (GameObject)GameObject.Instantiate( laserPrefab,
+				                      fireFromPos.position + missQuat * skipBarrel * 30.0f,
+				                              aimToFire  * Quaternion.AngleAxis(90.0f,Vector3.right));
+				newGO.transform.parent = laserKeeper;
+				if(spawnLimited) {
+					Shootable reportWhenDead = newGO.GetComponent<Shootable>();
+					reportWhenDead.reportDeath = true;
+				}
+			}
 		}
 	}
 }

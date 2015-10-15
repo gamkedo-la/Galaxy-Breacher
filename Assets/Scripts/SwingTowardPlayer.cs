@@ -9,8 +9,8 @@ public class SwingTowardPlayer : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.LookAt(PlayerControl.instance.transform.position);
-		transform.Rotate(
+		transform.LookAt(PlayerControl.instance.transform.position); // snap tracking
+		transform.Rotate( // oscillate swivel, good effect for laser attack
 			Mathf.Cos(Time.time*7.673f) * 3.0f,
 			Mathf.Cos(Time.time*3.1f) * 5.0f, 0.0f, Space.Self);
 	}
