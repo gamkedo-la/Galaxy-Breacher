@@ -62,6 +62,11 @@ public class LittleShipAI : MonoBehaviour {
 			escapeMarginTime -= Time.deltaTime;
 			if(runFrom == null) {
 				runFrom = RadarManager.megaShipHeart.transform;
+				if(runFrom == null) { // give up, megaship is already gone
+					dodgingMegaShip = false;
+					escapeMarginTime = 0.0f;
+					return; // bail out and skip this frame
+				}
 			}
 			Vector3 awayFromMegaShip = transform.position-runFrom.position;
 			transform.rotation = Quaternion.Slerp(transform.rotation, 

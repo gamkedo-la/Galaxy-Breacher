@@ -52,20 +52,24 @@ public class RadarManager : MonoBehaviour {
 			nearestTargetPuppet.SetActive(false);
 		}
 
-		float crashDanger = 1.0f;
-		float distToMega = Vector3.Distance( transform.position, megaShipHeart.transform.position );
-		crashDanger *= 500.0f / distToMega;
-		crashDanger *= crashDanger; // square the effect
-		if(crashDanger > 3.5f) {
-			crashDanger = 3.5f;
+		if(megaShipHeart) {
+			float crashDanger = 1.0f;
+			float distToMega = Vector3.Distance( transform.position, megaShipHeart.transform.position );
+			crashDanger *= 500.0f / distToMega;
+			crashDanger *= crashDanger; // square the effect
+			if(crashDanger > 3.5f) {
+				crashDanger = 3.5f;
+			}
+			if(crashDanger < 0.5f) {
+				crashDanger = 0.5f;
+			}
+			megaShipPuppet.transform.localScale = Vector3.one * crashDanger * megaShipHeartSizeDefault;
+			megaShipPuppet.transform.Rotate(Time.deltaTime * 80.0f,Time.deltaTime * 30.0f, 0.0f);
+			megaShipPuppet.transform.position = radarSphere.transform.position + (megaShipHeart.transform.position - transform.position).normalized *
+				radarSphere.transform.localScale.x * 0.35f;
+		} else if(megaShipPuppet.activeSelf) {
+			megaShipPuppet.SetActive(false);
 		}
-		if(crashDanger < 0.5f) {
-			crashDanger = 0.5f;
-		}
-		megaShipPuppet.transform.localScale = Vector3.one * crashDanger * megaShipHeartSizeDefault;
-		megaShipPuppet.transform.Rotate(Time.deltaTime * 80.0f,Time.deltaTime * 30.0f, 0.0f);
-		megaShipPuppet.transform.position = radarSphere.transform.position + (megaShipHeart.transform.position - transform.position).normalized *
-			radarSphere.transform.localScale.x * 0.35f;
 
 		mirrorZ.localScale = mirrorZVect;
 	}

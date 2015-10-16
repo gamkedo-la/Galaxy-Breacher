@@ -19,6 +19,11 @@ public class Shootable : MonoBehaviour {
 			SpawnTicketBooth.instance.reportDeath();
 		}
 
+		if(tag == "Hardpoint") {
+			HardPointCounter hpc = transform.parent.GetComponent<HardPointCounter>();
+			hpc.RemoveHardpoint();
+		}
+
 		foreach(Transform child in transform){
 			if(child.gameObject.tag == "SurviveAfterParentRemoved"){
 				child.parent = LaserPulseCannon.laserKeeper;
@@ -43,7 +48,8 @@ public class Shootable : MonoBehaviour {
 			transform.position, Quaternion.identity);
 
 		if(gameObject.GetComponent<PlayerControl>()) {
-			Application.LoadLevel( Application.loadedLevel );
+			// Application.LoadLevel( Application.loadedLevel );
+			Debug.Log ("GAME OVER!!");
 		} else {
 			Destroy(gameObject);
 		}
