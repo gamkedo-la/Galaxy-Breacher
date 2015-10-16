@@ -789,8 +789,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   laserPrefab: {fileID: 139640, guid: 6346ae0e7347a41e6a6a6ff84306b9a4, type: 2}
   fireFromPos: {fileID: 425040}
-  inaccuracyArcMax: 3
+  inaccuracyArcMax: 1.5
   ROF: .200000003
+  holdFire: 0
+  needsLOS: 1
+  spawnLimited: 0
 --- !u!114 &11454274
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -803,6 +806,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healthLimit: 4
+  reportDeath: 0
+  canBeTarget: 1
 --- !u!114 &11459212
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -869,7 +874,15 @@ Prefab:
   serializedVersion: 2
   m_Modification:
     m_TransformParent: {fileID: 0}
-    m_Modifications: []
+    m_Modifications:
+    - target: {fileID: 0}
+      propertyPath: canBeTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: inaccuracyArcMax
+      value: 1.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 168526}

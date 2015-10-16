@@ -5,11 +5,15 @@ public class LittleShipAI : MonoBehaviour {
 
 	Vector3 strafeVector = Vector3.zero;
 	float attackDist;
+	bool dodgingMegaShip = false;
+	Transform runFrom;
 
 	public float ignoreRange = 1500.0f;
+	public float escapeMarginTime = 0.0f;
 
 	void Start() {
 		StartCoroutine( circleStrafeUpdate() );
+		escapeMarginTime = 4.0f;
 	}
 
 	IEnumerator circleStrafeUpdate() {
@@ -33,10 +37,40 @@ public class LittleShipAI : MonoBehaviour {
 			yield return new WaitForSeconds(Random.Range(0.5f,2.5f));
 		}
 	}
+
+	void OnTriggerEnter(Collider other) {
+		runFrom = other.transform;
+		if(dodgingMegaShip == false) {
+			LaserPulseCannon lpc = GetComponent<LaserPulseCannon>();
+			lpc.holdFire = true;
+		}
+		dodgingMegaShip = true;
+	}
+
+	void OnTriggerExit (Collider other) {
+		if(dodgingMegaShip) {
+			LaserPulseCannon lpc = GetComponent<LaserPulseCannon>();
+			lpc.holdFire = false;
+			escapeMarginTime = 3.0f;
+		}
+		dodgingMegaShip = false;
+	}
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position += strafeVector * Time.deltaTime * 30.0f;
+		if(dodgingMegaShip || escapeMarginTime > 0.0f) {
+			escapeMarginTime -= Time.deltaTime;
+			if(runFrom == null) {
+				runFrom = RadarManager.megaShipHeart.transform;
+			}
+			Vector3 awayFromMegaShip = transform.position-runFrom.position;
+			transform.rotation = Quaternion.Slerp(transform.rotation, 
+			                                      Quaternion.LookRotation(awayFromMegaShip),
+			                                      Time.deltaTime);
+			transform.position += transform.forward * Time.deltaTime * 120.0f;
+
+			return;
+		}
 
 		float distFrom = Vector3.Distance( transform.position,
 		                                  PlayerControl.instance.transform.position );
@@ -52,6 +86,8 @@ public class LittleShipAI : MonoBehaviour {
 			} else {
 				transform.position += transform.forward * Time.deltaTime * 40.0f;
 			}
+		} else {
+			transform.position += transform.forward * Time.deltaTime * 30.0f;
 		}
 	}
 }

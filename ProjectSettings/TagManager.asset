@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Player
+  - SurviveAfterParentRemoved
   layers:
   - Default
   - TransparentFX
@@ -16,9 +17,9 @@ TagManager:
   - 
   - Starbox
   - EnemyTurretDontBlockAiming
-  - 
-  - 
-  - 
+  - EnemyTeamNoFriendlyFire
+  - EnemyFireIgnoreEnemyTeam
+  - MegaShipArea
   - 
   - 
   - 

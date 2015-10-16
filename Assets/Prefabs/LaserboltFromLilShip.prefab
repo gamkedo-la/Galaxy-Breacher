@@ -12,7 +12,7 @@ GameObject:
   - 136: {fileID: 13654114}
   - 23: {fileID: 2329682}
   - 114: {fileID: 11415820}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: LaserboltFromLilShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -30,7 +30,7 @@ GameObject:
   - 33: {fileID: 3310598}
   - 136: {fileID: 13678370}
   - 23: {fileID: 2331206}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Laserbolt (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -48,7 +48,7 @@ GameObject:
   - 33: {fileID: 3395376}
   - 136: {fileID: 13612258}
   - 23: {fileID: 2316598}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Laserbolt (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,6 +262,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

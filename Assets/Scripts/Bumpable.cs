@@ -14,5 +14,10 @@ public class Bumpable : MonoBehaviour {
 			avgNormal += contact.normal;
 		}
 		transform.position += avgNormal.normalized * 15.0f;
+
+		Shootable shootableScript = GetComponent<Shootable>();
+		if(shootableScript && shootableScript.healthLimit > 0) {
+			shootableScript.ExplodeThis();
+		}
 	}
 }

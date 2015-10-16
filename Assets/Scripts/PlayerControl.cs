@@ -14,7 +14,15 @@ public class PlayerControl : MonoBehaviour {
 	public Camera stretchFOV;
 	public Text throttleReadout;
 
+	public Text damageReadout;
+	private int startHealth;
+	private int wasHealth;
+	private Shootable shootableScript;
+
 	public GameObject explodePrefabGeneral;
+
+	public GameObject rocketPrefab;
+	public GameObject rocketHardpoint;
 
 	private float throttle = 0.0f;
 	private float throttleSmooth = 0.0f;
@@ -27,6 +35,8 @@ public class PlayerControl : MonoBehaviour {
 	private Quaternion spin180From;
 	private bool isHairpin180 = false;
 
+	private int rocketSalvo = 0;
+
 	private bool activelyStrafing = false;
 
 	MuzzleFlash mFlash;
@@ -36,6 +46,24 @@ public class PlayerControl : MonoBehaviour {
 		instance = this;
 		mFlash = GetComponent<MuzzleFlash>();
 		mFlash.Reset();
+		StartCoroutine(rocketSalvoRelease());
+		shootableScript = GetComponent<Shootable>();
+		wasHealth = startHealth = shootableScript.healthLimit;
+	}
+
+	IEnumerator rocketSalvoRelease() {
+		while(true) {
+			if(rocketSalvo > 0) {
+				rocketSalvo--;
+				GameObject tempRocket = GameObject.Instantiate(rocketPrefab,
+				                       rocketHardpoint.transform.position
+				                       +rocketSalvo*1.5f*transform.right,
+				                       rocketHardpoint.transform.rotation) as GameObject;
+				RocketMotion rmScript = tempRocket.GetComponent<RocketMotion>();
+				rmScript.inheritSpeedBoost( maxSpeed * throttleSmooth );
+			}
+			yield return new WaitForSeconds(0.15f);
+		}
 	}
 
 	void updateThrottleReadout() {
@@ -48,6 +76,25 @@ public class PlayerControl : MonoBehaviour {
 			}
 		}
 		throttleReadout.text = textOut;
+	}
+
+	void updateHealthReadout() {
+		if(wasHealth > shootableScript.healthLimit) {
+			int diff = wasHealth-shootableScript.healthLimit;
+			for(int i=0;i<diff;i++) {
+				GameObject newGo = (GameObject)GameObject.Instantiate(
+					spawnUponShotHit,
+					transform.position + transform.forward * 3.0f +
+					Random.Range(-1.0f,1.0f) * transform.right +
+					Random.Range(-1.0f,1.0f) * transform.up,
+					Random.rotation
+					);
+				newGo.transform.parent = transform;
+			}
+			wasHealth = shootableScript.healthLimit;
+		}
+
+		damageReadout.text = "ARMOR: " + shootableScript.healthLimit + " / " + startHealth;
 	}
 	
 	// Update is called once per frame
@@ -97,6 +144,10 @@ public class PlayerControl : MonoBehaviour {
 			}
 		}
 
+		if(Input.GetKeyDown(KeyCode.Return) && rocketSalvo == 0) {
+			rocketSalvo = 5;
+		}
+
 		if(Input.GetKeyDown(KeyCode.X) && isHairpin180==false) {
 			isHairpin180 = true;
 			hairpinSpinAmt = 0.0f;
@@ -143,6 +194,7 @@ public class PlayerControl : MonoBehaviour {
 		}
 
 		updateThrottleReadout();
+		updateHealthReadout();
 
 		if(reloadTime >= 0.0f) {
 			reloadTime -= Time.deltaTime;
@@ -150,13 +202,14 @@ public class PlayerControl : MonoBehaviour {
 			mFlash.Strobe();
 
 			Ray playerGun = new Ray(transform.position, transform.forward);
-			float missBy = 3.0f;
+			float missBy = 0.75f;
 			Quaternion missQuat = Quaternion.AngleAxis(Random.Range(-missBy,missBy),Camera.main.transform.up);
 			missQuat = missQuat * Quaternion.AngleAxis(Random.Range(-missBy,missBy),Camera.main.transform.right);
 			playerGun.direction = missQuat * playerGun.direction;
 
 			RaycastHit rhInfo;
-			if( Physics.Raycast(playerGun, out rhInfo)) {
+			int layerMask = ~(1<<12);
+			if( Physics.Raycast(playerGun, out rhInfo, 4000.0f, layerMask)) {
 				Vector3 towardPlayer = rhInfo.point - transform.position;
 				GameObject newGo = (GameObject)GameObject.Instantiate(
 					spawnUponShotHit,

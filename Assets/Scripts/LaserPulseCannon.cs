@@ -6,21 +6,33 @@ public class LaserPulseCannon : MonoBehaviour {
 	public Transform fireFromPos;
 	public float inaccuracyArcMax = 2.0f;
 	public float ROF = 0.2f;
-	private Transform laserKeeper;
+	public static Transform laserKeeper;
 
+	public bool holdFire = false;
 	public bool needsLOS = true;
 	public bool spawnLimited = false;
 
 	void Start() {
 		StartCoroutine(FireLaser());
-		laserKeeper = GameObject.Find("LaserKeeper").transform;
+		if(laserKeeper == null) {
+			laserKeeper = GameObject.Find("LaserKeeper").transform;
+		}
 	}
 
 	IEnumerator FireLaser() {
 		while(true) {
 			RaycastHit rhInfo;
 			int layerMask = ~(1<<9);
-			yield return new WaitForSeconds(ROF);
+
+			if(Random.Range(0.0f,1.0f) < 0.05f) {
+				yield return new WaitForSeconds(4.0f); // randomly hold to reload or whatever
+			} else {
+				yield return new WaitForSeconds(ROF);
+			}
+
+			if(holdFire) {
+				continue;
+			}
 
 			if(needsLOS) {
 
