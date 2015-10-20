@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="AudioFile" id="{c8e9c3ee-98e7-42e7-b1d7-328f49fe5191}">
+        <property name="frequencyInKHz">
+            <value>96</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>3.3873125000000002</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/DeviceMechanical_S011SF.250 {48ff8c36-7250-4681-af17-334090d35ccb}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{0d181dff-3f9e-47aa-816f-675f3f71111d}</destination>
+        </relationship>
+    </object>
+</objects>

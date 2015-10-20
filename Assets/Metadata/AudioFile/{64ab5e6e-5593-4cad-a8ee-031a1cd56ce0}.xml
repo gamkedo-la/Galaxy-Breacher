@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="AudioFile" id="{64ab5e6e-5593-4cad-a8ee-031a1cd56ce0}">
+        <property name="frequencyInKHz">
+            <value>96</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>0.29734375000000002</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/Interactions_Valve_AirPressure_08 {1ad559a4-bf2f-47a8-84bb-c45c980a6346}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{0d181dff-3f9e-47aa-816f-675f3f71111d}</destination>
+        </relationship>
+    </object>
+</objects>

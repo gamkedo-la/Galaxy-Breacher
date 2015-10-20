@@ -19,5 +19,9 @@ public class Bumpable : MonoBehaviour {
 		if(shootableScript && shootableScript.healthLimit > 0) {
 			shootableScript.ExplodeThis();
 		}
+
+		SoundCenter.instance.PlayClipOn(
+			SoundCenter.instance.bumpSound, transform.position,
+			1.0f, ( GetComponent<PlayerControl>() ? PlayerControl.instance.transform : null ));
 	}
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="AudioFile" id="{16637be3-fbbc-4502-a303-b2a9ef26a9f2}">
+        <property name="frequencyInKHz">
+            <value>96</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>1.1182708333333333</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/MetalBend_HV.479 {b5a712a6-d5bf-49b8-94f5-ce30e70a4188}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{0d181dff-3f9e-47aa-816f-675f3f71111d}</destination>
+        </relationship>
+    </object>
+</objects>

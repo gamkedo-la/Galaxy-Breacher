@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="AudioFile" id="{8a3eb8f3-35c5-4bd1-9ba0-576280a7b107}">
+        <property name="frequencyInKHz">
+            <value>96</value>
+        </property>
+        <property name="channelCount">
+            <value>1</value>
+        </property>
+        <property name="length">
+            <value>1.4568749999999999</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/Interactions_Steam_Spit_01 {da845a25-3dd9-4415-a94f-42a84f67a4c2}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{0d181dff-3f9e-47aa-816f-675f3f71111d}</destination>
+        </relationship>
+    </object>
+</objects>

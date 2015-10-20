@@ -11,7 +11,7 @@ GameObject:
   - 198: {fileID: 19838374}
   - 199: {fileID: 19920662}
   - 114: {fileID: 11459086}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Smoke
   m_TagString: SurviveAfterParentRemoved
   m_Icon: {fileID: 0}
@@ -33,7 +33,7 @@ GameObject:
   - 114: {fileID: 11453124}
   - 114: {fileID: 11402578}
   - 54: {fileID: 5410562}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,7 @@ GameObject:
   - 198: {fileID: 19899898}
   - 199: {fileID: 19900580}
   - 114: {fileID: 11475022}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: Thrust
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -179,6 +179,7 @@ MonoBehaviour:
   healthLimit: 1
   reportDeath: 0
   canBeTarget: 0
+  isMegaShipHardPart: 0
 --- !u!114 &11459086
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -373,7 +374,7 @@ ParticleSystem:
         rgba: 1700157014
       minMaxState: 2
     startSize:
-      scalar: 7
+      scalar: 9
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -388,7 +389,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .428571433
+          value: .555555582
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -566,10 +567,10 @@ ParticleSystem:
       maxGradient:
         key0:
           serializedVersion: 2
-          rgba: 2368548
+          rgba: 8026746
         key1:
           serializedVersion: 2
-          rgba: 4171605413
+          rgba: 4175092442
         key2:
           serializedVersion: 2
           rgba: 3523215360
@@ -597,8 +598,8 @@ ParticleSystem:
         ctime6: 0
         ctime7: 0
         atime0: 0
-        atime1: 7710
-        atime2: 40478
+        atime1: 5975
+        atime2: 44718
         atime3: 65535
         atime4: 65535
         atime5: 0
@@ -2365,11 +2366,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: InitialModule.startSize.minCurve.m_Curve.Array.data[0].value
-      value: .428571433
+      value: .555555582
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: InitialModule.startSize.scalar
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: InitialModule.startColor.minMaxState
@@ -2393,11 +2394,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ColorModule.gradient.maxGradient.key0.rgba
-      value: 2368548
+      value: 8026746
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ColorModule.gradient.maxGradient.key1.rgba
-      value: 4171605413
+      value: 4175092442
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ColorModule.gradient.maxGradient.key2.rgba
@@ -2405,11 +2406,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ColorModule.gradient.maxGradient.atime1
-      value: 7710
+      value: 5975
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ColorModule.gradient.maxGradient.atime2
-      value: 40478
+      value: 44718
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: ColorModule.gradient.maxGradient.atime3
@@ -2534,6 +2535,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: ForceModule.x.minCurve.m_Curve.Array.data[0].value
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

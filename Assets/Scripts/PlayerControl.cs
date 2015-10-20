@@ -11,8 +11,10 @@ public class PlayerControl : MonoBehaviour {
 	public float dodgeSpeed = 20.0f;
 	public float maxSpeed = 90.0f;
 
+	public AudioSource engineVolume;
 	public Camera stretchFOV;
 	public Text throttleReadout;
+	private bool maxThrottle = false;
 
 	public Text damageReadout;
 	private int startHealth;
@@ -68,11 +70,25 @@ public class PlayerControl : MonoBehaviour {
 
 	void updateThrottleReadout() {
 		string textOut = "";
+		bool wasMaxThrottle = maxThrottle;
+		maxThrottle = true; // true unless any '.' get drawn to display
 		for(float f=0.0f;f<1.0f;f+=0.08f) {
 			if(throttleSmooth > f) {
 				textOut += "|";
 			} else {
+				maxThrottle = false; // clearly haven't maxed the bar, cut hyperdrive
 				textOut += ".";
+			}
+		}
+		if(wasMaxThrottle != maxThrottle) {
+			if(maxThrottle) {
+				SoundCenter.instance.PlayClipOn(
+					SoundCenter.instance.hyperSpeed, transform.position, 1.0f,
+					transform);
+			} else {
+				SoundCenter.instance.PlayClipOn(
+					SoundCenter.instance.hyperSpeedCancel, transform.position, 1.0f,
+					transform);
 			}
 		}
 		throttleReadout.text = textOut;
@@ -94,11 +110,12 @@ public class PlayerControl : MonoBehaviour {
 			wasHealth = shootableScript.healthLimit;
 		}
 
-		damageReadout.text = "ARMOR: " + shootableScript.healthLimit + " / " + startHealth;
+		// damageReadout.text = "ARMOR: " + shootableScript.healthLimit + " / " + startHealth;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+		float wasThrottle = throttle;
 		if(Input.GetKeyDown(KeyCode.Alpha1)) {
 			throttle = 0.0f;
 		} else if(Input.GetKeyDown(KeyCode.Alpha2)) {
@@ -121,12 +138,24 @@ public class PlayerControl : MonoBehaviour {
 			throttle = 1.0f;
 		}
 
+		if(throttle > wasThrottle) {
+			SoundCenter.instance.PlayClipOn(
+				SoundCenter.instance.throttleUp, transform.position, 1.0f, transform);
+		} else if(throttle < wasThrottle) {
+			SoundCenter.instance.PlayClipOn(
+				SoundCenter.instance.throttleDown, transform.position, 1.0f, transform);
+		}
 
 		float asymThrot = (1.0f-throttleSmooth);
 		asymThrot *= asymThrot;
 		asymThrot = 1.0f-asymThrot;
-		transform.position += asymThrot * transform.forward * Time.deltaTime * maxSpeed;
+		engineVolume.volume = 0.1f+0.7f*asymThrot;
+
 		stretchFOV.fieldOfView = 55.0f + asymThrot*10.0f;
+		if(maxThrottle) {
+			asymThrot *= 4.0f;
+		}
+		transform.position += asymThrot * transform.forward * Time.deltaTime * maxSpeed;
 
 		float dodgeInput = Input.GetAxisRaw("Roll");
 
@@ -138,9 +167,13 @@ public class PlayerControl : MonoBehaviour {
 			if(dodgeInput < -0.1f)  {
 				strafeAxis = transform.right;
 				activelyStrafing = true;
+				SoundCenter.instance.PlayClipOn(
+					SoundCenter.instance.playerDodge, transform.position, 1.0f, transform);
 			} else if(dodgeInput > 0.1f)  {
 				strafeAxis = -transform.right;
 				activelyStrafing = true;
+				SoundCenter.instance.PlayClipOn(
+					SoundCenter.instance.playerDodge, transform.position, 1.0f, transform);
 			}
 		}
 
@@ -149,6 +182,8 @@ public class PlayerControl : MonoBehaviour {
 		}
 
 		if(Input.GetKeyDown(KeyCode.X) && isHairpin180==false) {
+			SoundCenter.instance.PlayClipOn(
+				SoundCenter.instance.playerDodge, transform.position, 1.0f, transform);
 			isHairpin180 = true;
 			hairpinSpinAmt = 0.0f;
 			spin180From = transform.rotation;
@@ -180,6 +215,9 @@ public class PlayerControl : MonoBehaviour {
 			} else {
 				float lastTurn = hairpinSpinAmt * 2.0f-1.0f;
 				if(wasBelow) {
+					SoundCenter.instance.PlayClipOn(
+						SoundCenter.instance.throttleDown, transform.position, 1.0f, transform);
+
 					spin180From = transform.rotation;
 					spin180Goal = transform.rotation 
 						* Quaternion.AngleAxis(180.0f,Vector3.forward);
@@ -189,6 +227,8 @@ public class PlayerControl : MonoBehaviour {
 			}
 
 			if(hairpinSpinAmt > 1.0f) {
+				SoundCenter.instance.PlayClipOn(
+					SoundCenter.instance.throttleUp, transform.position, 1.0f, transform);
 				isHairpin180 = false;
 			}
 		}
@@ -200,6 +240,10 @@ public class PlayerControl : MonoBehaviour {
 			reloadTime -= Time.deltaTime;
 		} else if(Input.GetKey(KeyCode.Space)) {
 			mFlash.Strobe();
+
+			SoundCenter.instance.PlayClipOn(
+					SoundCenter.instance.playerMG2, transform.position, Random.Range(0.6f,0.8f),
+					transform);
 
 			Ray playerGun = new Ray(transform.position, transform.forward);
 			float missBy = 0.75f;
@@ -218,6 +262,9 @@ public class PlayerControl : MonoBehaviour {
 					);
 				newGo.transform.parent = rhInfo.collider.transform;
 				Shootable thingShot = rhInfo.collider.GetComponent<Shootable>();
+				SoundCenter.instance.PlayClipOn(
+					SoundCenter.instance.playerMG1, transform.position, Random.Range(0.2f,0.5f),
+					transform);
 				if(thingShot) {
 					thingShot.DamageThis();
 				}

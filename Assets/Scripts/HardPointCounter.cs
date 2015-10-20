@@ -23,7 +23,11 @@ public class HardPointCounter : MonoBehaviour {
 			GameObject.Instantiate(megashipDeathExplosionFire,
 			                       megashipExplosionCenter.transform.position,
 			                       megashipExplosionCenter.transform.rotation);
-			Destroy( megashipParent, 0.3f );
+			SoundCenter.instance.PlayClipOn(
+				SoundCenter.instance.megashipBoom, 
+				Camera.main.transform.position, 1.0f,
+				Camera.main.transform);
+			Destroy( megashipParent, 0.45f );
 		}
 	}
 }

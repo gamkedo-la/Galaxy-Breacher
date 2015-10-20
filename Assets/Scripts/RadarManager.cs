@@ -5,6 +5,7 @@ public class RadarManager : MonoBehaviour {
 	public GameObject nearestTargetPuppet;
 	public GameObject radarSphere;
 
+	public static GameObject megaShipGO;
 	public static GameObject megaShipHeart;
 	public GameObject megaShipPuppet;
 
@@ -14,13 +15,39 @@ public class RadarManager : MonoBehaviour {
 	public float scanRange = 3000.0f;
 	private float megaShipHeartSizeDefault;
 
-	void Start() {
-		if(megaShipHeart == null) {
-			megaShipHeart = GameObject.Find("MegaShipCenter");
-			megaShipHeartSizeDefault = megaShipPuppet.transform.localScale.x;
+	public Texture aimTexture;
+	public Texture aimTextureNearest;
+
+	IEnumerator FindNearestHardpoint() {
+		megaShipGO = GameObject.Find("TargetHardpoints");
+
+		float closestMatch;
+		while(megaShipGO != null) {
+			if(megaShipGO == null) {
+				Debug.Log("megaShipGO named TargetHardpoints is null, bailing on hardpoint search");
+				break;
+			}
+			megaShipHeart = null;
+			closestMatch = 9999999.0f;
+			foreach (Transform child in megaShipGO.transform){
+				if(child.gameObject.tag == "Hardpoint"){
+					float distTo = Vector3.Distance( transform.position,
+					                                child.transform.position);
+					if(distTo < closestMatch) {
+						megaShipHeart = child.gameObject;
+						closestMatch = distTo;
+					}
+				}
+			}
+			yield return new WaitForSeconds(1.0f);
 		}
+	}
+
+	void Start() {
+		megaShipHeartSizeDefault = megaShipPuppet.transform.localScale.x;
 		mirrorZVect = Vector3.one;
 		mirrorZVect.z = -1.0f;
+		StartCoroutine( FindNearestHardpoint() );
 	}
 
 	// Update is called once per frame
@@ -53,6 +80,10 @@ public class RadarManager : MonoBehaviour {
 		}
 
 		if(megaShipHeart) {
+			if(megaShipPuppet.activeSelf == false) {
+				megaShipPuppet.SetActive(true);
+			}
+
 			float crashDanger = 1.0f;
 			float distToMega = Vector3.Distance( transform.position, megaShipHeart.transform.position );
 			crashDanger *= 500.0f / distToMega;
@@ -72,5 +103,22 @@ public class RadarManager : MonoBehaviour {
 		}
 
 		mirrorZ.localScale = mirrorZVect;
+	}
+
+	void OnGUI() {
+		if(megaShipGO) {
+			foreach (Transform child in megaShipGO.transform){
+				if(child.gameObject.tag == "Hardpoint"){
+					Vector3 position = Camera.main.WorldToScreenPoint(child.transform.position);
+					if(position.z > 0.0f) { // ignore if behind us
+						position.y = Screen.height - position.y;
+						float size = 40.0f;
+						GUI.DrawTexture(new Rect((position.x - (size/2)), (position.y - (size/2)),
+						                         size, size), 
+						                (child.gameObject == megaShipHeart ? aimTextureNearest : aimTexture));
+					}
+				}
+			}
+		}
 	}
 }

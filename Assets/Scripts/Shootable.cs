@@ -6,7 +6,14 @@ public class Shootable : MonoBehaviour {
 	public bool reportDeath = false;
 	public bool canBeTarget = false;
 	int timesHit = 0;
+	public bool isMegaShipHardPart = false;
 	private bool alreadyKilledInChain = false;
+
+	private bool isPlayer;
+
+	void Start() {
+		isPlayer = (gameObject.GetComponent<PlayerControl>() != null);
+	}
 
 	public void ExplodeThis() {
 		if(alreadyKilledInChain) {
@@ -47,10 +54,22 @@ public class Shootable : MonoBehaviour {
 			PlayerControl.instance.explodePrefabGeneral,
 			transform.position, Quaternion.identity);
 
-		if(gameObject.GetComponent<PlayerControl>()) {
+		if(isPlayer) {
 			// Application.LoadLevel( Application.loadedLevel );
 			Debug.Log ("GAME OVER!!");
 		} else {
+			// explosions always at max volume, high priority gameplay event, play on camera
+			if(isMegaShipHardPart) {
+				SoundCenter.instance.PlayClipOn(
+					SoundCenter.instance.megashipDamage, 
+					Camera.main.transform.position, Random.Range(0.4f,0.7f),
+					Camera.main.transform);
+			} else {
+				SoundCenter.instance.PlayClipOn(
+					SoundCenter.instance.explodeGeneric, 
+					Camera.main.transform.position, Random.Range(0.25f,0.5f),
+					Camera.main.transform);
+			}
 			Destroy(gameObject);
 		}
 	}
@@ -58,9 +77,13 @@ public class Shootable : MonoBehaviour {
 	public void DamageThis() {
 		timesHit++;
 		healthLimit--;
-		Debug.Log (gameObject.name + " HAS BEEN HIT "+ timesHit+" TIMES!");
+		// Debug.Log (gameObject.name + " HAS BEEN HIT "+ timesHit+" TIMES!");
+
 		if(healthLimit == 0) {
 			ExplodeThis();
+		} else if(isPlayer) {
+			SoundCenter.instance.PlayClipOn(
+				SoundCenter.instance.playerHurt, transform.position, 1.0f, transform);
 		}
 	}
 
