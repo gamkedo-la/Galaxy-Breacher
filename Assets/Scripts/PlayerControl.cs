@@ -44,8 +44,11 @@ public class PlayerControl : MonoBehaviour {
 	MuzzleFlash mFlash;
 	private float reloadTime = 0.0f;
 
-	void Start() {
+	void Awake() {
 		instance = this;
+	}
+
+	void Start() {
 		mFlash = GetComponent<MuzzleFlash>();
 		mFlash.Reset();
 		StartCoroutine(rocketSalvoRelease());

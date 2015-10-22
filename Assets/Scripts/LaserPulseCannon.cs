@@ -13,9 +13,13 @@ public class LaserPulseCannon : MonoBehaviour {
 	public bool spawnLimited = false;
 
 	void Start() {
-		StartCoroutine(FireLaser());
-		if(laserKeeper == null) {
-			laserKeeper = GameObject.Find("LaserKeeper").transform;
+		if(PlayerControl.instance == null) {
+			Destroy(this); // remove component, no player in scene, must be level menu
+		} else {
+			StartCoroutine(FireLaser());
+			if(laserKeeper == null) {
+				laserKeeper = GameObject.Find("LaserKeeper").transform;
+			}
 		}
 	}
 

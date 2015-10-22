@@ -4,7 +4,9 @@ using System.Collections;
 public class SwingTowardPlayer : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
-	
+		if(PlayerControl.instance == null) {
+			Destroy(this); // remove component, no player in scene, must be level menu
+		}
 	}
 	
 	// Update is called once per frame
