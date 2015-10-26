@@ -14,7 +14,7 @@ public class PlayerControl : MonoBehaviour {
 	public AudioSource engineVolume;
 	public Camera stretchFOV;
 	public Text throttleReadout;
-	private bool maxThrottle = false;
+    private bool maxThrottle = false;
 
 	public Text damageReadout;
 	private int startHealth;
@@ -112,9 +112,19 @@ public class PlayerControl : MonoBehaviour {
 			}
 			wasHealth = shootableScript.healthLimit;
 		}
+        //Armor: 12 / 12
+        damageReadout.text = "ARMOR: " + shootableScript.healthLimit + " / " + startHealth + "\n";
 
-		// damageReadout.text = "ARMOR: " + shootableScript.healthLimit + " / " + startHealth;
-	}
+        //Speed: 180 KM / H
+        damageReadout.text += "SPEED: 180 KM / H \n";
+
+        //Heat: NORMAL
+        damageReadout.text += "HEAT: NORMAL \n";
+
+        //Power:  Stable
+        damageReadout.text += "POWER: STABLE";
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
