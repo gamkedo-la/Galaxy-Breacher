@@ -579,6 +579,12 @@ GameObject:
 GameObject:
   m_PrefabParentObject: {fileID: 151854, guid: 12f0a2831b9034c03a46f78e65f74ed9, type: 2}
   m_PrefabInternal: {fileID: 660952973}
+--- !u!114 &1118128146 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11433862, guid: 9e855992468ab4ddcab2c21f329e637f,
+    type: 2}
+  m_PrefabInternal: {fileID: 122647367}
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!4 &1207430310 stripped
 Transform:
   m_PrefabParentObject: {fileID: 470314, guid: 26211f59293c04c7cb981dfa2f26aa5c, type: 2}
@@ -745,6 +751,10 @@ Prefab:
       propertyPath: missionTarget
       value: 
       objectReference: {fileID: 1038025679}
+    - target: {fileID: 11495370, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
+      propertyPath: targetReadout
+      value: 
+      objectReference: {fileID: 1118128146}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
   m_IsPrefabParent: 0

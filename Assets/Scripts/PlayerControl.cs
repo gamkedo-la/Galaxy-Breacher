@@ -24,8 +24,8 @@ public class PlayerControl : MonoBehaviour {
     public Text targetReadout;
     private float targetDistance = 0;
     public GameObject missionTarget;
-    public int hardpointCount = 0;
-    public int hardpointMax = 0;
+	private HardPointCounter hardpointRef = null;
+    private int hardpointMax = 0;
 
     public GameObject explodePrefabGeneral;
 
@@ -62,6 +62,10 @@ public class PlayerControl : MonoBehaviour {
 		StartCoroutine(rocketSalvoRelease());
 		shootableScript = GetComponent<Shootable>();
 		wasHealth = startHealth = shootableScript.healthLimit;
+
+		hardpointRef = missionTarget.GetComponentInChildren<HardPointCounter>();
+
+		hardpointMax = hardpointRef.hardpointCount;
 	}
 
 	IEnumerator rocketSalvoRelease() {
@@ -78,22 +82,9 @@ public class PlayerControl : MonoBehaviour {
 			yield return new WaitForSeconds(0.15f);
 		}
 	}
-
+	
     void updateTargetReadout(){
         targetDistance = Vector3.Distance(transform.position, missionTarget.transform.position);
-
-        hardpointCount = 0;
-        foreach (Transform child in missionTarget.transform){
-            if (child.gameObject.tag == "Hardpoint"){
-                hardpointCount++;
-
-                if (hardpointCount > hardpointMax) {
-                    hardpointMax = hardpointCount;
-                }
-            }
-        };
-        
-
 
         string textOut = "";
         //TARGET: VHERAIN TITAN
@@ -101,7 +92,7 @@ public class PlayerControl : MonoBehaviour {
         //DISTANCE:  573m
         textOut += "DISTANCE: " + Mathf.FloorToInt(targetDistance) + "m \n";
         //WEAKSPOTS 20 / 25
-        textOut += "WEAKSPOTS: " + hardpointCount +"/ " + hardpointMax;
+		textOut += "WEAKSPOTS: " + hardpointRef.hardpointCount +"/ " + hardpointMax;
 
         targetReadout.text = textOut; 
 

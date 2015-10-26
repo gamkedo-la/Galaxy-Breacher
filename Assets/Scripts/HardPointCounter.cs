@@ -7,8 +7,7 @@ public class HardPointCounter : MonoBehaviour {
 	public GameObject megashipExplosionCenter;
 	public GameObject megashipDeathExplosionFire;
 
-	// Use this for initialization
-	void Start () {
+	void Awake () { // Awake since needs to happen before player Start
 		foreach(Transform child in transform){
 			if(child.gameObject.tag == "Hardpoint"){
 				hardpointCount++;
@@ -18,7 +17,7 @@ public class HardPointCounter : MonoBehaviour {
 	
 	public void RemoveHardpoint() {
 		hardpointCount--;
-		Debug.Log("Megaship hardpoints remaining: " + hardpointCount);
+		// Debug.Log("Megaship hardpoints remaining: " + hardpointCount); // now on HUD!
 		if(hardpointCount<=0) {
 			GameObject.Instantiate(megashipDeathExplosionFire,
 			                       megashipExplosionCenter.transform.position,
