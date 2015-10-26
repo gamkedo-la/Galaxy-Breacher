@@ -234,6 +234,14 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 126776, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 132668, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
   m_IsPrefabParent: 0
@@ -255,7 +263,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!23 &129552141
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -567,6 +575,10 @@ MonoBehaviour:
 GameObject:
   m_PrefabParentObject: {fileID: 116076, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
   m_PrefabInternal: {fileID: 1269869304}
+--- !u!1 &1038025679 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 151854, guid: 12f0a2831b9034c03a46f78e65f74ed9, type: 2}
+  m_PrefabInternal: {fileID: 660952973}
 --- !u!4 &1207430310 stripped
 Transform:
   m_PrefabParentObject: {fileID: 470314, guid: 26211f59293c04c7cb981dfa2f26aa5c, type: 2}
@@ -729,6 +741,10 @@ Prefab:
       propertyPath: damageReadout
       value: 
       objectReference: {fileID: 14560380}
+    - target: {fileID: 11495370, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
+      propertyPath: missionTarget
+      value: 
+      objectReference: {fileID: 1038025679}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
   m_IsPrefabParent: 0

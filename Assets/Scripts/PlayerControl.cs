@@ -14,17 +14,23 @@ public class PlayerControl : MonoBehaviour {
 	public AudioSource engineVolume;
 	public Camera stretchFOV;
 	public Text throttleReadout;
-	private bool maxThrottle = false;
+    private bool maxThrottle = false;
 
 	public Text damageReadout;
 	private int startHealth;
 	private int wasHealth;
 	private Shootable shootableScript;
 
-	public GameObject explodePrefabGeneral;
+    public Text targetReadout;
+    private float targetDistance = 0;
+    public GameObject missionTarget;
+    public int hardpointCount = 0;
+    public int hardpointMax = 0;
+
+    public GameObject explodePrefabGeneral;
 
 	public GameObject rocketPrefab;
-	public GameObject rocketHardpoint;
+	public GameObject rocketHardpoint;    
 
 	private float throttle = 0.0f;
 	private float throttleSmooth = 0.0f;
@@ -44,7 +50,9 @@ public class PlayerControl : MonoBehaviour {
 	MuzzleFlash mFlash;
 	private float reloadTime = 0.0f;
 
-	void Awake() {
+
+
+    void Awake() {
 		instance = this;
 	}
 
@@ -71,7 +79,35 @@ public class PlayerControl : MonoBehaviour {
 		}
 	}
 
-	void updateThrottleReadout() {
+    void updateTargetReadout(){
+        targetDistance = Vector3.Distance(transform.position, missionTarget.transform.position);
+
+        hardpointCount = 0;
+        foreach (Transform child in missionTarget.transform){
+            if (child.gameObject.tag == "Hardpoint"){
+                hardpointCount++;
+
+                if (hardpointCount > hardpointMax) {
+                    hardpointMax = hardpointCount;
+                }
+            }
+        };
+        
+
+
+        string textOut = "";
+        //TARGET: VHERAIN TITAN
+        textOut += "TARGET: VHERAIN TITAN \n";
+        //DISTANCE:  573m
+        textOut += "DISTANCE: " + Mathf.FloorToInt(targetDistance) + "m \n";
+        //WEAKSPOTS 20 / 25
+        textOut += "WEAKSPOTS: " + hardpointCount +"/ " + hardpointMax;
+
+        targetReadout.text = textOut; 
+
+    }
+
+    void updateThrottleReadout() {
 		string textOut = "";
 		bool wasMaxThrottle = maxThrottle;
 		maxThrottle = true; // true unless any '.' get drawn to display
@@ -112,9 +148,19 @@ public class PlayerControl : MonoBehaviour {
 			}
 			wasHealth = shootableScript.healthLimit;
 		}
+        //Armor: 12 / 12
+        damageReadout.text = "ARMOR: " + shootableScript.healthLimit + " / " + startHealth + "\n";
 
-		// damageReadout.text = "ARMOR: " + shootableScript.healthLimit + " / " + startHealth;
-	}
+        //Speed: 180 KM / H
+        damageReadout.text += "SPEED: " + Mathf.CeilToInt(throttleSmooth * 180) + " KM / H \n"; 
+
+        //Heat: NORMAL
+        damageReadout.text += "HEAT: NORMAL \n";
+
+        //Power:  Stable
+        damageReadout.text += "POWER: STABLE";
+
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -238,8 +284,9 @@ public class PlayerControl : MonoBehaviour {
 
 		updateThrottleReadout();
 		updateHealthReadout();
+        updateTargetReadout();
 
-		if(reloadTime >= 0.0f) {
+        if (reloadTime >= 0.0f) {
 			reloadTime -= Time.deltaTime;
 		} else if(Input.GetKey(KeyCode.Space)) {
 			mFlash.Strobe();
