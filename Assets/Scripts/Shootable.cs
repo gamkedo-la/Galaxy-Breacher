@@ -56,7 +56,12 @@ public class Shootable : MonoBehaviour {
 
 		if(isPlayer) {
 			// Application.LoadLevel( Application.loadedLevel );
-			Debug.Log ("GAME OVER!!");
+			if(GameStateStaticProgress.cheatsOn) {
+				Debug.Log ("GAME OVER!!");
+				alreadyKilledInChain = false; // so can later die if cheats toggled
+			} else {
+				Application.LoadLevel("Level Select");
+			}
 		} else {
 			// explosions always at max volume, high priority gameplay event, play on camera
 			if(isMegaShipHardPart) {
@@ -79,7 +84,7 @@ public class Shootable : MonoBehaviour {
 		healthLimit--;
 		// Debug.Log (gameObject.name + " HAS BEEN HIT "+ timesHit+" TIMES!");
 
-		if(healthLimit == 0) {
+		if(healthLimit <= 0) {
 			ExplodeThis();
 		} else if(isPlayer) {
 			SoundCenter.instance.PlayClipOn(

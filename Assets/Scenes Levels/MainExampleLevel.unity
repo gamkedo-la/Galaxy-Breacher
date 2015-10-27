@@ -234,17 +234,26 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 126776, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
-      propertyPath: m_IsActive
+    - target: {fileID: 11482338, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 132668, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 11482338, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_Color.g
+      value: .946247458
+      objectReference: {fileID: 0}
+    - target: {fileID: 11482338, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_Color.b
+      value: .220588207
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
   m_IsPrefabParent: 0
+--- !u!224 &122647368 stripped
+RectTransform:
+  m_PrefabParentObject: {fileID: 22442582, guid: 9e855992468ab4ddcab2c21f329e637f,
+    type: 2}
+  m_PrefabInternal: {fileID: 122647367}
 --- !u!1 &129552140
 GameObject:
   m_ObjectHideFlags: 0
@@ -579,6 +588,95 @@ GameObject:
 GameObject:
   m_PrefabParentObject: {fileID: 151854, guid: 12f0a2831b9034c03a46f78e65f74ed9, type: 2}
   m_PrefabInternal: {fileID: 660952973}
+--- !u!1 &1099524651
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 161022, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 224: {fileID: 1099524655}
+  - 222: {fileID: 1099524654}
+  - 114: {fileID: 1099524653}
+  - 114: {fileID: 1099524652}
+  m_Layer: 5
+  m_Name: CheatMessage
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1099524652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1099524651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b72583c17d087443c83773981627d39d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1099524653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11482338, guid: 9e855992468ab4ddcab2c21f329e637f,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1099524651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: .588235259, g: .588235259, b: .588235259, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 8
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 1
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'J to toggle cheats
+
+    Debug cheats: '
+--- !u!222 &1099524654
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22240540, guid: 9e855992468ab4ddcab2c21f329e637f,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1099524651}
+--- !u!224 &1099524655
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 22457674, guid: 9e855992468ab4ddcab2c21f329e637f,
+    type: 2}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1099524651}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 122647368}
+  m_RootOrder: 7
+  m_AnchorMin: {x: .5, y: 0}
+  m_AnchorMax: {x: .5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 150, y: 20}
+  m_Pivot: {x: .5, y: 0}
 --- !u!114 &1118128146 stripped
 MonoBehaviour:
   m_PrefabParentObject: {fileID: 11433862, guid: 9e855992468ab4ddcab2c21f329e637f,

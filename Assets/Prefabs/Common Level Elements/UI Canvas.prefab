@@ -68,7 +68,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &161022
 GameObject:
   m_ObjectHideFlags: 0
@@ -79,6 +79,7 @@ GameObject:
   - 224: {fileID: 22457674}
   - 222: {fileID: 22240540}
   - 114: {fileID: 11482338}
+  - 114: {fileID: 11419882}
   m_Layer: 5
   m_Name: In-Game Manual
   m_TagString: Untagged
@@ -239,6 +240,17 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: .' X '.
+--- !u!114 &11419882
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 161022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31b259988c33548a9af0dfae4537b766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11426952
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -333,6 +345,8 @@ MonoBehaviour:
     Tap X for 180 reversal
 
     Crashing or dying triggers restart
+
+    ===Press H to toggle this wall of help text===
 
     Song by Kevin MacLeod (Creative Commons)
 
@@ -583,7 +597,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 5, y: -5}
-  m_SizeDelta: {x: 360, y: 140}
+  m_SizeDelta: {x: 360, y: 150}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &22458956
 RectTransform:

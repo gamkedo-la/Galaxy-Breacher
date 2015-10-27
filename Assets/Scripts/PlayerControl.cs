@@ -142,8 +142,8 @@ public class PlayerControl : MonoBehaviour {
         //Armor: 12 / 12
         damageReadout.text = "ARMOR: " + shootableScript.healthLimit + " / " + startHealth + "\n";
 
-        //Speed: 180 KM / H
-        damageReadout.text += "SPEED: " + Mathf.CeilToInt(throttleSmooth * 180) + " KM / H \n"; 
+        damageReadout.text += "SPEED: " + Mathf.CeilToInt(throttleSmooth * 180) + " KPH \n"; 
+		//Speed: 180 KPH -- changed by cdeleon from KM / H to fit easier
 
         //Heat: NORMAL
         damageReadout.text += "HEAT: NORMAL \n";
