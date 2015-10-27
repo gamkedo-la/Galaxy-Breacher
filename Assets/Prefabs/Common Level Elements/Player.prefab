@@ -681,6 +681,8 @@ MonoBehaviour:
   stretchFOV: {fileID: 0}
   throttleReadout: {fileID: 0}
   damageReadout: {fileID: 0}
+  targetReadout: {fileID: 0}
+  missionTarget: {fileID: 0}
   explodePrefabGeneral: {fileID: 134378, guid: 41d3e993f60cf4472b0f8355a9e9f3a2, type: 2}
   rocketPrefab: {fileID: 166474, guid: 175207689e9e7400598e39615e0e93df, type: 2}
   rocketHardpoint: {fileID: 172526}

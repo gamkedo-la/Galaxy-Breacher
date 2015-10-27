@@ -84,18 +84,21 @@ public class PlayerControl : MonoBehaviour {
 	}
 	
     void updateTargetReadout(){
-        targetDistance = Vector3.Distance(transform.position, missionTarget.transform.position);
+		if(missionTarget) {
+	        targetDistance = Vector3.Distance(transform.position, missionTarget.transform.position);
 
-        string textOut = "";
-        //TARGET: VHERAIN TITAN
-        textOut += "TARGET: VHERAIN TITAN \n";
-        //DISTANCE:  573m
-        textOut += "DISTANCE: " + Mathf.FloorToInt(targetDistance) + "m \n";
-        //WEAKSPOTS 20 / 25
-		textOut += "WEAKSPOTS: " + hardpointRef.hardpointCount +"/ " + hardpointMax;
-
-        targetReadout.text = textOut; 
-
+	        string textOut = "";
+	        //TARGET: VHERAIN TITAN
+	        textOut += "TARGET: VHERAIN TITAN \n";
+	        //DISTANCE:  573m
+	        textOut += "DISTANCE: " + Mathf.FloorToInt(targetDistance) + "m \n";
+	        //WEAKSPOTS 20 / 25
+			textOut += "WEAKSPOTS: " + hardpointRef.hardpointCount +"/ " + hardpointMax;
+			targetReadout.text = textOut; 
+		}
+		else {
+			targetReadout.text = "MISSION COMPLETE\nTARGET DESTROYED\nHYPERSPACE HOME!!";
+		}
     }
 
     void updateThrottleReadout() {
