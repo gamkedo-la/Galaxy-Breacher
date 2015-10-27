@@ -2299,8 +2299,9 @@ GameObject:
   - 114: {fileID: 943545070}
   - 82: {fileID: 943545069}
   - 114: {fileID: 943545079}
+  - 114: {fileID: 943545080}
   m_Layer: 13
-  m_Name: Player Main Camera
+  m_Name: Main Camera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2425,7 +2426,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: e9ba2083ad114a07d000fbfb8d76c639, type: 3}
-  blurAmount: .273000002
+  blurAmount: .726000011
   extraBlur: 0
 --- !u!114 &943545072
 MonoBehaviour:
@@ -2456,12 +2457,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tweakMode: 0
   screenBlendMode: 1
-  hdr: 0
-  sepBlurSpread: 7.80999994
+  hdr: 1
+  sepBlurSpread: 3.42000008
   useSrcAlphaAsMask: 0
-  bloomIntensity: 1.20000005
-  bloomThreshold: -.0500000007
-  bloomBlurIterations: 1
+  bloomIntensity: 2.17000008
+  bloomThreshold: .340000004
+  bloomBlurIterations: 3
   lensflares: 0
   hollywoodFlareBlurIterations: 2
   lensflareMode: 1
@@ -2566,6 +2567,150 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1350c0e7927294462a07f07ef4fd5e5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &943545080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 943545068}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd999d1b2cf94a45a5b0a47ce074bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - time: .092990987
+      value: .296823204
+      inSlope: 1.18051851
+      outSlope: 1.18051851
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  greenChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - time: .0929656625
+      value: .241079971
+      inSlope: 1.57519674
+      outSlope: 1.57519674
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  blueChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - time: .104190201
+      value: .412379622
+      inSlope: 1.16338599
+      outSlope: 1.16338599
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  useDepthCorrection: 0
+  zCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  depthRedChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  depthGreenChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  depthBlueChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  saturation: 1.12
+  selectiveCc: 0
+  selectiveFromColor: {r: 1, g: 1, b: 1, a: 1}
+  selectiveToColor: {r: 1, g: 1, b: 1, a: 1}
+  mode: 0
+  updateTextures: 1
+  colorCorrectionCurvesShader: {fileID: 4800000, guid: 62bcade1028c24ca1a39760ed84b9487,
+    type: 3}
+  simpleColorCorrectionCurvesShader: {fileID: 4800000, guid: 438ddd58d82c84d9eb1fdc56111702e1,
+    type: 3}
+  colorCorrectionSelectiveShader: {fileID: 4800000, guid: e515e0f94cefc4c0db54b45cba621544,
+    type: 3}
 --- !u!1 &1067161359
 GameObject:
   m_ObjectHideFlags: 0
@@ -5075,7 +5220,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: .0980392173, g: .0549019612, b: .0862745121, a: .0196078438}
+  m_BackGroundColor: {r: .0588235296, g: .0392156877, b: .0627451017, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
