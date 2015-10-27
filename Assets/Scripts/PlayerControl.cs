@@ -89,7 +89,7 @@ public class PlayerControl : MonoBehaviour {
 
 	        string textOut = "";
 	        //TARGET: VHERAIN TITAN
-	        textOut += "TARGET: VHERAIN TITAN \n";
+			textOut += "TARGET: "+missionTarget.name+"\n";
 	        //DISTANCE:  573m
 	        textOut += "DISTANCE: " + Mathf.FloorToInt(targetDistance) + "m \n";
 	        //WEAKSPOTS 20 / 25
@@ -158,6 +158,10 @@ public class PlayerControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(Input.GetKeyDown(KeyCode.Escape)) {
+			Application.LoadLevel("Level Select");
+		}
+
 		float wasThrottle = throttle;
 		if(Input.GetKeyDown(KeyCode.Alpha1)) {
 			throttle = 0.0f;
@@ -241,7 +245,8 @@ public class PlayerControl : MonoBehaviour {
 			transform.Rotate(
 				Input.GetAxis("Vertical") * Time.deltaTime * pitchSpeed,
 				Input.GetAxis("Horizontal") * Time.deltaTime * yawSpeed,
-				Input.GetAxis("Roll") * Time.deltaTime * rollSpeed
+				(GameStateStaticProgress.uprightDodge ? 0.0f :
+				Input.GetAxis("Roll") * Time.deltaTime * rollSpeed)
 				);
 
 			transform.position += strafeAxis * Time.deltaTime * dodgeSpeed;

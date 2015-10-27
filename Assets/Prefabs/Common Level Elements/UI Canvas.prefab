@@ -342,7 +342,7 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 8
+    m_FontSize: 12
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
@@ -406,6 +406,8 @@ MonoBehaviour:
     Press RETURN to fire Rocket Salvo
 
     Tap X for 180 reversal
+
+    Tap Esc to return to level select screen
 
     Crashing or dying triggers restart
 
@@ -625,7 +627,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: 0}
   m_AnchorMax: {x: .5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 150, y: 20}
+  m_SizeDelta: {x: 150, y: 30}
   m_Pivot: {x: .5, y: 0}
 --- !u!224 &22442582
 RectTransform:
@@ -684,7 +686,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 5, y: -5}
-  m_SizeDelta: {x: 360, y: 150}
+  m_SizeDelta: {x: 360, y: 160}
   m_Pivot: {x: 0, y: 1}
 --- !u!224 &22458956
 RectTransform:
