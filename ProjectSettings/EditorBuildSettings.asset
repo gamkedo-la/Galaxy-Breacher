@@ -11,3 +11,7 @@ EditorBuildSettings:
     path: Assets/Scenes Levels/VHERAIN TITAN.unity
   - enabled: 1
     path: Assets/Scenes Levels/FHTAGN.unity
+  - enabled: 1
+    path: Assets/Scenes Levels/SHELLATOR.unity
+  - enabled: 1
+    path: Assets/Scenes Levels/ROHOVLA CONVOY.unity
