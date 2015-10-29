@@ -34,6 +34,7 @@ public class PlayerControl : MonoBehaviour {
 
 	private float throttle = 0.0f;
 	private float throttleSmooth = 0.0f;
+	private float asymThrot = 1.0f;
 	private Vector3 strafeAxis = Vector3.zero;
 	public GameObject spawnUponShotHit;
 	private bool isTurningDampenSpeed = false;
@@ -49,7 +50,7 @@ public class PlayerControl : MonoBehaviour {
 
 	MuzzleFlash mFlash;
 	private float reloadTime = 0.0f;
-
+	private int dispThrotVal = 0;
 
 
     void Awake() {
@@ -68,7 +69,7 @@ public class PlayerControl : MonoBehaviour {
 		hardpointMax = hardpointRef.hardpointCount;
 	}
 
-	IEnumerator rocketSalvoRelease() {
+	IEnumerator rocketSalvoRelease() { // also periodically updates throttle readout
 		while(true) {
 			if(rocketSalvo > 0) {
 				rocketSalvo--;
@@ -79,6 +80,9 @@ public class PlayerControl : MonoBehaviour {
 				RocketMotion rmScript = tempRocket.GetComponent<RocketMotion>();
 				rmScript.inheritSpeedBoost( maxSpeed * throttleSmooth );
 			}
+
+			dispThrotVal = Mathf.CeilToInt(asymThrot * 239
+			                               + Random.Range(0,5)*asymThrot);
 			yield return new WaitForSeconds(0.15f);
 		}
 	}
@@ -145,7 +149,7 @@ public class PlayerControl : MonoBehaviour {
         //Armor: 12 / 12
         damageReadout.text = "ARMOR: " + shootableScript.healthLimit + " / " + startHealth + "\n";
 
-        damageReadout.text += "SPEED: " + Mathf.CeilToInt(throttleSmooth * 180) + " KPH \n"; 
+		damageReadout.text += "SPEED: " + dispThrotVal + " KPH \n"; 
 		//Speed: 180 KPH -- changed by cdeleon from KM / H to fit easier
 
         //Heat: NORMAL
@@ -193,7 +197,7 @@ public class PlayerControl : MonoBehaviour {
 				SoundCenter.instance.throttleDown, transform.position, 1.0f, transform);
 		}
 
-		float asymThrot = (1.0f-throttleSmooth);
+		asymThrot = (1.0f-throttleSmooth);
 		asymThrot *= asymThrot;
 		asymThrot = 1.0f-asymThrot;
 		engineVolume.volume = 0.1f+0.7f*asymThrot;

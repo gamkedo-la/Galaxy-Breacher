@@ -2,6 +2,7 @@
 using System.Collections;
 
 public class LaserMove : MonoBehaviour {
+	public float laserSpeed = 390.0f;
 
 	// Use this for initialization
 	void Start () {
@@ -18,6 +19,6 @@ public class LaserMove : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		transform.position += transform.up * Time.deltaTime * 390.0f;
+		transform.position += transform.up * Time.deltaTime * laserSpeed;
 	}
 }

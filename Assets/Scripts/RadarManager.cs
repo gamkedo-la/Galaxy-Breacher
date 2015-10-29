@@ -107,7 +107,8 @@ public class RadarManager : MonoBehaviour {
 
 	void OnGUI() {
 		if(megaShipGO) {
-			foreach (Transform child in megaShipGO.transform){
+			Shootable[] allShootable = megaShipGO.GetComponentsInChildren<Shootable>();
+			foreach (Shootable child in allShootable){
 				if(child.gameObject.tag == "Hardpoint"){
 					Vector3 position = Camera.main.WorldToScreenPoint(child.transform.position);
 					if(position.z > 0.0f) { // ignore if behind us

@@ -11,6 +11,9 @@ public class LittleShipAI : MonoBehaviour {
 	public float ignoreRange = 1500.0f;
 	public float escapeMarginTime = 0.0f;
 
+	public float chaseSpeed = 40.0f;
+	public float strafeSpeed = 85.0f;
+
 	void Start() {
 		StartCoroutine( circleStrafeUpdate() );
 		escapeMarginTime = 4.0f;
@@ -91,9 +94,9 @@ public class LittleShipAI : MonoBehaviour {
 			if(distFrom < attackDist) {
 				transform.position -= transform.forward * Time.deltaTime * 20.0f;
 			} else {
-				transform.position += transform.forward * Time.deltaTime * 40.0f;
+				transform.position += transform.forward * Time.deltaTime * chaseSpeed;
 			}
-			transform.position += strafeVector * Time.deltaTime * 85.0f;
+			transform.position += strafeVector * Time.deltaTime * strafeSpeed;
 
 		} else {
 			transform.position += transform.forward * Time.deltaTime * 30.0f;

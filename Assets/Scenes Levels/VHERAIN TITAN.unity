@@ -3979,6 +3979,22 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11494236, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
+      propertyPath: nearestTargetPuppet
+      value: 
+      objectReference: {fileID: 752522762}
+    - target: {fileID: 11494236, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
+      propertyPath: radarSphere
+      value: 
+      objectReference: {fileID: 1578421305}
+    - target: {fileID: 11494236, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
+      propertyPath: megaShipPuppet
+      value: 
+      objectReference: {fileID: 1867970657}
+    - target: {fileID: 11494236, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
+      propertyPath: mirrorZ
+      value: 
+      objectReference: {fileID: 1207430310}
     - target: {fileID: 11495370, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
       propertyPath: stretchFOV
       value: 
@@ -3999,22 +4015,10 @@ Prefab:
       propertyPath: missionTarget
       value: 
       objectReference: {fileID: 1038025679}
-    - target: {fileID: 11494236, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
-      propertyPath: nearestTargetPuppet
-      value: 
-      objectReference: {fileID: 752522762}
-    - target: {fileID: 11494236, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
-      propertyPath: radarSphere
-      value: 
-      objectReference: {fileID: 1578421305}
-    - target: {fileID: 11494236, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
-      propertyPath: megaShipPuppet
-      value: 
-      objectReference: {fileID: 1867970657}
-    - target: {fileID: 11494236, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
-      propertyPath: mirrorZ
-      value: 
-      objectReference: {fileID: 1207430310}
+    - target: {fileID: 11487784, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
   m_IsPrefabParent: 0

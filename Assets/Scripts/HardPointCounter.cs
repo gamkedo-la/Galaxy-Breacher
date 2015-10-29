@@ -8,7 +8,8 @@ public class HardPointCounter : MonoBehaviour {
 	public GameObject megashipDeathExplosionFire;
 
 	void Awake () { // Awake since needs to happen before player Start
-		foreach(Transform child in transform){
+		Shootable[] allShoot = GetComponentsInChildren<Shootable>();
+		foreach(Shootable child in allShoot){
 			if(child.gameObject.tag == "Hardpoint"){
 				hardpointCount++;
 			}

@@ -27,7 +27,7 @@ public class Shootable : MonoBehaviour {
 		}
 
 		if(tag == "Hardpoint") {
-			HardPointCounter hpc = transform.parent.GetComponent<HardPointCounter>();
+			HardPointCounter hpc = transform.GetComponentInParent<HardPointCounter>();
 			hpc.RemoveHardpoint();
 		}
 
