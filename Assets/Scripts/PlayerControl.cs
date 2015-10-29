@@ -202,10 +202,14 @@ public class PlayerControl : MonoBehaviour {
 		asymThrot = 1.0f-asymThrot;
 		engineVolume.volume = 0.1f+0.7f*asymThrot;
 
-		stretchFOV.fieldOfView = 55.0f + asymThrot*10.0f;
 		if(maxThrottle) {
 			asymThrot *= 4.0f;
 		}
+
+		float newFOV = 55.0f + asymThrot*10.0f;
+		float kSpring = 0.95f;
+		stretchFOV.fieldOfView = kSpring*stretchFOV.fieldOfView + (1.0f-kSpring)*newFOV;
+
 		transform.position += asymThrot * transform.forward * Time.deltaTime * maxSpeed;
 
 		float dodgeInput = Input.GetAxisRaw("Roll");
