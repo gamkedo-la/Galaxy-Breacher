@@ -136,8 +136,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 133016}
-  m_LocalRotation: {x: 0, y: .845607877, z: 0, w: .533804655}
-  m_LocalPosition: {x: -1829.08887, y: -423, z: 2404.70508}
+  m_LocalRotation: {x: .937288046, y: .0418454409, z: .324191004, w: -.120996982}
+  m_LocalPosition: {x: -1829.08887, y: -857.643433, z: 2404.70508}
   m_LocalScale: {x: 4, y: 4, z: 4}
   m_Children:
   - {fileID: 489918}
@@ -767,7 +767,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 116076}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4739c22ef73ad62488fe344c8fe9addd, type: 3}
   m_Name: 
@@ -850,6 +850,9 @@ MonoBehaviour:
   yawSpeed: 35
   dodgeSpeed: 135
   maxSpeed: 220
+  rocketReloadTime: 5
+  cooldownTimeNeeded: 1.79999995
+  timeBetweenShots: .100000001
   engineVolume: {fileID: 8299588}
   stretchFOV: {fileID: 0}
   throttleReadout: {fileID: 0}

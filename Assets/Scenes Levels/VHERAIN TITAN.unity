@@ -371,6 +371,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 117856, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
   m_IsPrefabParent: 0
@@ -4018,6 +4022,10 @@ Prefab:
     - target: {fileID: 11487784, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11495370, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
+      propertyPath: cooldownTimeNeeded
+      value: 1.79999995
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}

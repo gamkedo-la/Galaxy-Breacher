@@ -11,6 +11,14 @@ public class PlayerControl : MonoBehaviour {
 	public float dodgeSpeed = 20.0f;
 	public float maxSpeed = 90.0f;
 
+	public float rocketReloadTime = 5.0f;
+	private float rocketReloadTimeLeft = 0.0f;
+
+	public float cooldownTimeNeeded = 0.75f;
+	public float timeBetweenShots = 0.1f;
+	private float gunHeat = 0.0f;
+	private float gunCooldownTimeLeft = 0.0f;
+
 	public AudioSource engineVolume;
 	public Camera stretchFOV;
 	public Text throttleReadout;
@@ -153,10 +161,18 @@ public class PlayerControl : MonoBehaviour {
 		//Speed: 180 KPH -- changed by cdeleon from KM / H to fit easier
 
         //Heat: NORMAL
-        damageReadout.text += "HEAT: NORMAL \n";
+		if(gunCooldownTimeLeft > 0.0f) {
+			damageReadout.text += "MG HEAT: LOCKED\n";
+		} else {
+			damageReadout.text += "MG HEAT: "+ Mathf.CeilToInt(gunHeat*100) +"%\n";
+		}
 
         //Power:  Stable
-        damageReadout.text += "POWER: STABLE";
+		if(rocketReloadTimeLeft <= 0.0f) {
+        	damageReadout.text += "ROCKETS: READY";
+		} else {
+			damageReadout.text += "ROCKETS: <"+ Mathf.CeilToInt(rocketReloadTimeLeft*10)+">";
+		}
 
     }
 	
@@ -232,8 +248,18 @@ public class PlayerControl : MonoBehaviour {
 			}
 		}
 
-		if(Input.GetKeyDown(KeyCode.Return) && rocketSalvo == 0) {
-			rocketSalvo = 5;
+		if(rocketReloadTimeLeft > 0.0f) {
+			rocketReloadTimeLeft -= Time.deltaTime;
+		}
+
+		if(Input.GetKeyDown(KeyCode.Return)) {
+			if(rocketSalvo == 0 && rocketReloadTimeLeft <= 0.0f) {
+				rocketSalvo = 5;
+				rocketReloadTimeLeft = rocketReloadTime;
+			} else {
+				SoundCenter.instance.PlayClipOn(
+					SoundCenter.instance.laserFire, transform.position, 1.0f, transform);
+			}
 		}
 
 		if(Input.GetKeyDown(KeyCode.X) && isHairpin180==false) {
@@ -293,9 +319,20 @@ public class PlayerControl : MonoBehaviour {
 		updateHealthReadout();
         updateTargetReadout();
 
+		if(gunCooldownTimeLeft >= 0.0f) {
+			gunCooldownTimeLeft -= Time.deltaTime;
+		}
+
         if (reloadTime >= 0.0f) {
 			reloadTime -= Time.deltaTime;
-		} else if(Input.GetKey(KeyCode.Space)) {
+		} else if(Input.GetKey(KeyCode.Space) && gunCooldownTimeLeft <= 0.0f) {
+			gunHeat += timeBetweenShots;
+			if(gunHeat > 1.0f) {
+				gunCooldownTimeLeft = cooldownTimeNeeded;
+				SoundCenter.instance.PlayClipOn(
+					SoundCenter.instance.throttleDown, transform.position, 1.0f, transform);
+			}
+
 			mFlash.Strobe();
 
 			SoundCenter.instance.PlayClipOn(
@@ -327,7 +364,12 @@ public class PlayerControl : MonoBehaviour {
 				}
 				// Destroy( rhInfo.collider.gameObject );
 			}
-			reloadTime = 0.1f;
+			reloadTime = timeBetweenShots;
+		} else if(gunHeat > 0.0f) {
+			gunHeat -= Time.deltaTime;
+			if(gunHeat <0.0f) {
+				gunHeat = 0.0f;
+			}
 		}
 	}
 
