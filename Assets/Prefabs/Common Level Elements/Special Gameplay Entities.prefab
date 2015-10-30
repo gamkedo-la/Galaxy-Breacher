@@ -1058,8 +1058,8 @@ MonoBehaviour:
   hyperSpeed: {fileID: 8300000, guid: 6c3b4af801d794c3facd43859a53097b, type: 3}
   hyperSpeedCancel: {fileID: 8300000, guid: 811d98af50f274afcbc038395dbef222, type: 3}
   megashipBoom: {fileID: 8300000, guid: fef40f47c0a7b4d10a7edbd3b024c3cf, type: 3}
-  playerMG1: {fileID: 8300000, guid: 72e814e77e3c64719848ebc51c4bb241, type: 3}
-  playerMG2: {fileID: 8300000, guid: 63f6049f1fd374132a2cfdd29953fccf, type: 3}
+  playerMG1: {fileID: 8300000, guid: da7f8cb0a9f02469596e8843d2af0c96, type: 3}
+  playerMG2: {fileID: 8300000, guid: 7e148c7670aa3462b96ebd4ed3dd1778, type: 3}
 --- !u!114 &11457250
 MonoBehaviour:
   m_ObjectHideFlags: 1

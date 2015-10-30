@@ -6916,11 +6916,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11460548, guid: 26211f59293c04c7cb981dfa2f26aa5c, type: 2}
+    - target: {fileID: 11499602, guid: 26211f59293c04c7cb981dfa2f26aa5c, type: 2}
       propertyPath: of
       value: 
       objectReference: {fileID: 943545068}
-    - target: {fileID: 11499602, guid: 26211f59293c04c7cb981dfa2f26aa5c, type: 2}
+    - target: {fileID: 11460548, guid: 26211f59293c04c7cb981dfa2f26aa5c, type: 2}
       propertyPath: of
       value: 
       objectReference: {fileID: 943545068}

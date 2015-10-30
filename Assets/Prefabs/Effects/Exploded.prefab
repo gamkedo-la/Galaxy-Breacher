@@ -28,6 +28,7 @@ GameObject:
   - 198: {fileID: 19835670}
   - 199: {fileID: 19934852}
   - 114: {fileID: 11440744}
+  - 114: {fileID: 11414830}
   m_Layer: 0
   m_Name: Exploded
   m_TagString: Untagged
@@ -92,6 +93,20 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!114 &11414830
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 134378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 528ed627ab7a10b4f9c927aa803de36e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asset: {fileID: 11400000, guid: 06061287b91cb4b0ab3dddfcc1e2a97e, type: 2}
+  path: '{68a30331-8419-43da-a342-eb34f4c966c0}'
+  startEventOnAwake: 1
 --- !u!114 &11440744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1234,6 +1249,15 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Range
       value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: asset
+      value: 
+      objectReference: {fileID: 11400000, guid: 06061287b91cb4b0ab3dddfcc1e2a97e,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: path
+      value: '{68a30331-8419-43da-a342-eb34f4c966c0}'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

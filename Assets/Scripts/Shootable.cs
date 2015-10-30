@@ -70,10 +70,10 @@ public class Shootable : MonoBehaviour {
 					Camera.main.transform.position, Random.Range(0.4f,0.7f),
 					Camera.main.transform);
 			} else {
-				SoundCenter.instance.PlayClipOn(
+				/* SoundCenter.instance.PlayClipOn(
 					SoundCenter.instance.explodeGeneric, 
 					Camera.main.transform.position, Random.Range(0.25f,0.5f),
-					Camera.main.transform);
+					Camera.main.transform); */
 			}
 			Destroy(gameObject);
 		}
