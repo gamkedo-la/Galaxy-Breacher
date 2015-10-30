@@ -12,6 +12,7 @@ GameObject:
   - 136: {fileID: 13654114}
   - 23: {fileID: 2329682}
   - 114: {fileID: 11415820}
+  - 114: {fileID: 11455448}
   m_Layer: 11
   m_Name: Laserbolt
   m_TagString: Untagged
@@ -197,6 +198,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68bc91980b99d4428ab6018568ae5f96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  laserSpeed: 390
+--- !u!114 &11455448
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 139640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 528ed627ab7a10b4f9c927aa803de36e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asset: {fileID: 11400000, guid: 9f800f2a0ac884387bdd30a3bf4620c6, type: 2}
+  path: '{5cb11138-c4b7-4ff2-9bb5-cb78b9c39ad4}'
+  startEventOnAwake: 1
 --- !u!136 &13612258
 CapsuleCollider:
   m_ObjectHideFlags: 1
@@ -262,6 +278,15 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: m_Layer
       value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: asset
+      value: 
+      objectReference: {fileID: 11400000, guid: 9f800f2a0ac884387bdd30a3bf4620c6,
+        type: 2}
+    - target: {fileID: 0}
+      propertyPath: path
+      value: '{5cb11138-c4b7-4ff2-9bb5-cb78b9c39ad4}'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

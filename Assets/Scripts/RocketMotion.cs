@@ -19,9 +19,9 @@ public class RocketMotion : MonoBehaviour {
 
 		targetLooker = StartCoroutine(targetScan());
 
-		SoundCenter.instance.PlayClipOn(
+		/*SoundCenter.instance.PlayClipOn(
 			SoundCenter.instance.rocketLaunch, transform.position,
-			Random.Range(0.25f,0.5f));
+			Random.Range(0.25f,0.5f));*/
 	}
 
 	public void inheritSpeedBoost(float adjustedThrottle) {

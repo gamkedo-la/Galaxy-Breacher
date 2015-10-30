@@ -299,7 +299,7 @@ public class PlayerControl : MonoBehaviour {
 			mFlash.Strobe();
 
 			SoundCenter.instance.PlayClipOn(
-					SoundCenter.instance.playerMG2, transform.position, Random.Range(0.6f,0.8f),
+					SoundCenter.instance.playerMG2, transform.position, Random.Range(0.2f,0.4f),
 					transform);
 
 			Ray playerGun = new Ray(transform.position, transform.forward);
@@ -320,7 +320,7 @@ public class PlayerControl : MonoBehaviour {
 				newGo.transform.parent = rhInfo.collider.transform;
 				Shootable thingShot = rhInfo.collider.GetComponent<Shootable>();
 				SoundCenter.instance.PlayClipOn(
-					SoundCenter.instance.playerMG1, transform.position, Random.Range(0.2f,0.5f),
+					SoundCenter.instance.playerMG1, transform.position, Random.Range(0.3f,0.4f),
 					transform);
 				if(thingShot) {
 					thingShot.DamageThis();

@@ -2,6 +2,12 @@
 using System.Collections;
 
 public class Bumpable : MonoBehaviour {
+	private FMOD_StudioEventEmitter fmodSource;
+
+	void Start() {
+		fmodSource = GetComponent<FMOD_StudioEventEmitter>();
+	}
+
 	void OnCollisionEnter (Collision coll) {
 		/*Vector3 posDiff = coll.transform.position - transform.position;
 		transform.position += posDiff.normalized * 20.0f;*/
@@ -20,8 +26,12 @@ public class Bumpable : MonoBehaviour {
 			shootableScript.ExplodeThis();
 		}
 
-		SoundCenter.instance.PlayClipOn(
-			SoundCenter.instance.bumpSound, transform.position,
-			1.0f, ( GetComponent<PlayerControl>() ? PlayerControl.instance.transform : null ));
+		if(fmodSource) {
+			fmodSource.StartEvent();
+		} else {
+			SoundCenter.instance.PlayClipOn(
+				SoundCenter.instance.bumpSound, transform.position,
+				1.0f, ( GetComponent<PlayerControl>() ? PlayerControl.instance.transform : null ));
+		}
 	}
 }
