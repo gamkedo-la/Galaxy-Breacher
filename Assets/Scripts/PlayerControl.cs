@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 
@@ -11,6 +11,7 @@ public class PlayerControl : MonoBehaviour {
 	public float dodgeSpeed = 20.0f;
 	public float maxSpeed = 90.0f;
 
+
 	public float rocketReloadTime = 5.0f;
 	private float rocketReloadTimeLeft = 0.0f;
 
@@ -21,8 +22,6 @@ public class PlayerControl : MonoBehaviour {
 
 	public AudioSource engineVolume;
 	public Camera stretchFOV;
-	public Text throttleReadout;
-    private bool maxThrottle = false;
 
 	public Text damageReadout;
 	private int startHealth;
@@ -40,8 +39,16 @@ public class PlayerControl : MonoBehaviour {
 	public GameObject rocketPrefab;
 	public GameObject rocketHardpoint;    
 
+	public GameObject throttleReadout;
+	public GameObject SpeedReadout;
+
+	private UI_Speed UI_SpeedReadout;
+	private UI_Speed UI_ThrottleReadout;
+
+	private bool maxThrottle = false;
 	private float throttle = 0.0f;
 	private float throttleSmooth = 0.0f;
+
 	private float asymThrot = 1.0f;
 	private Vector3 strafeAxis = Vector3.zero;
 	public GameObject spawnUponShotHit;
@@ -71,6 +78,8 @@ public class PlayerControl : MonoBehaviour {
 		StartCoroutine(rocketSalvoRelease());
 		shootableScript = GetComponent<Shootable>();
 		wasHealth = startHealth = shootableScript.healthLimit;
+		UI_ThrottleReadout = throttleReadout.GetComponent<UI_Speed> ();
+		UI_SpeedReadout = SpeedReadout.GetComponent<UI_Speed> ();
 
 		hardpointRef = missionTarget.GetComponentInChildren<HardPointCounter>();
 
@@ -117,14 +126,9 @@ public class PlayerControl : MonoBehaviour {
 		string textOut = "";
 		bool wasMaxThrottle = maxThrottle;
 		maxThrottle = true; // true unless any '.' get drawn to display
-		for(float f=0.0f;f<1.0f;f+=0.08f) {
-			if(throttleSmooth > f) {
-				textOut += "|";
-			} else {
-				maxThrottle = false; // clearly haven't maxed the bar, cut hyperdrive
-				textOut += ".";
-			}
-		}
+		UI_SpeedReadout.currentSpeed = (int)(throttleSmooth * 10);
+		UI_ThrottleReadout.counter = (int) Mathf.Floor(throttle * 10);
+
 		if(wasMaxThrottle != maxThrottle) {
 			if(maxThrottle) {
 				SoundCenter.instance.PlayClipOn(
@@ -136,7 +140,7 @@ public class PlayerControl : MonoBehaviour {
 					transform);
 			}
 		}
-		throttleReadout.text = textOut;
+		//throttleReadout.text = textOut;
 	}
 
 	void updateHealthReadout() {
