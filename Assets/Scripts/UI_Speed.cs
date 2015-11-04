@@ -29,6 +29,9 @@ public class UI_Speed : MonoBehaviour {
 
 		if (counter != lastCounter) {
 			lastCounter = counter; 
+			if(counter >= throttleLevels.Length) {
+				counter = throttleLevels.Length-1;
+			}
 			gameObject.GetComponent<Image>().sprite = throttleLevels[counter];
 		}
 	}

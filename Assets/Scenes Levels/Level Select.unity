@@ -1906,7 +1906,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: 0}
   m_AnchorMax: {x: .5, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 270, y: 20}
+  m_SizeDelta: {x: 360, y: 20}
   m_Pivot: {x: .5, y: 0}
 --- !u!114 &405560782
 MonoBehaviour:
@@ -1963,7 +1963,7 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Toggle+ToggleEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
-  m_IsOn: 1
+  m_IsOn: 0
 --- !u!114 &405560783
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2009,7 +2009,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: 0}
   m_AnchorMax: {x: .5, y: 0}
   m_AnchoredPosition: {x: 0, y: 21}
-  m_SizeDelta: {x: 270, y: 20}
+  m_SizeDelta: {x: 360, y: 20}
   m_Pivot: {x: .5, y: 0}
 --- !u!114 &465541140
 MonoBehaviour:
@@ -5497,7 +5497,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Stay upright during dodge (no roll)
+  m_Text: Roll during dodge (better control but disorienting)
 --- !u!222 &1207834810
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5514,7 +5514,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: .0588235296, g: .0392156877, b: .0627451017, a: .0196078438}
+  m_BackGroundColor: {r: .0823529437, g: .0588235296, b: .0745098069, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -8268,7 +8268,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Degamify (DEBUG CHEATS)
+  m_Text: Degamify (Invulnerable, Instant Reload)
 --- !u!222 &1769195386
 CanvasRenderer:
   m_ObjectHideFlags: 0

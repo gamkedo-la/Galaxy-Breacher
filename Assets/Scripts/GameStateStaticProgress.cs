@@ -14,7 +14,7 @@ public class GameStateStaticProgress : MonoBehaviour {
 				updateToggle.isOn = cheatsOn;
 				break;
 			case "uprightDodge":
-				updateToggle.isOn = uprightDodge;
+				updateToggle.isOn = !uprightDodge;
 				break;
 			}
 		}
@@ -25,6 +25,6 @@ public class GameStateStaticProgress : MonoBehaviour {
 	}
 
 	public void UprightToggle(bool newValue) {
-		uprightDodge = newValue;
+		uprightDodge = !newValue;
 	}
 }

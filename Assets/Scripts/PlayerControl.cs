@@ -39,8 +39,8 @@ public class PlayerControl : MonoBehaviour {
 	public GameObject rocketPrefab;
 	public GameObject rocketHardpoint;    
 
-	public GameObject throttleReadout;
-	public GameObject SpeedReadout;
+	private GameObject throttleReadout;
+	private GameObject SpeedReadout;
 
 	private UI_Speed UI_SpeedReadout;
 	private UI_Speed UI_ThrottleReadout;
@@ -73,6 +73,9 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 	void Start() {
+		SpeedReadout = GameObject.Find("Speed");
+		throttleReadout = GameObject.Find("Throttle");
+
 		mFlash = GetComponent<MuzzleFlash>();
 		mFlash.Reset();
 		StartCoroutine(rocketSalvoRelease());
@@ -125,9 +128,11 @@ public class PlayerControl : MonoBehaviour {
     void updateThrottleReadout() {
 		string textOut = "";
 		bool wasMaxThrottle = maxThrottle;
-		maxThrottle = true; // true unless any '.' get drawn to display
+
 		UI_SpeedReadout.currentSpeed = (int)(throttleSmooth * 10);
 		UI_ThrottleReadout.counter = (int) Mathf.Floor(throttle * 10);
+
+		maxThrottle = (UI_SpeedReadout.currentSpeed >= 9);
 
 		if(wasMaxThrottle != maxThrottle) {
 			if(maxThrottle) {

@@ -300,7 +300,7 @@ Prefab:
     - target: {fileID: 11495370, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
       propertyPath: throttleReadout
       value: 
-      objectReference: {fileID: 1759881609}
+      objectReference: {fileID: 0}
     - target: {fileID: 11495370, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
       propertyPath: damageReadout
       value: 
@@ -420,12 +420,6 @@ Prefab:
 GameObject:
   m_PrefabParentObject: {fileID: 195478, guid: 26211f59293c04c7cb981dfa2f26aa5c, type: 2}
   m_PrefabInternal: {fileID: 2137011060}
---- !u!114 &1759881609 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11489632, guid: 9e855992468ab4ddcab2c21f329e637f,
-    type: 2}
-  m_PrefabInternal: {fileID: 122647367}
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1777378299
 GameObject:
   m_ObjectHideFlags: 0
