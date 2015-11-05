@@ -286,7 +286,7 @@ public class PlayerControl : MonoBehaviour {
 
 		if(Input.GetKeyDown(KeyCode.Return)) {
 			if(rocketSalvo == 0 && rocketReloadTimeLeft <= 0.0f) {
-				rocketSalvo = 5;
+				rocketSalvo = 4;
 				if(GameStateStaticProgress.cheatsOn == false) {
 					rocketReloadTimeLeft = rocketReloadTime;
 				}

@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class RadarManager : MonoBehaviour {
 	public GameObject nearestTargetPuppet;
@@ -17,6 +18,8 @@ public class RadarManager : MonoBehaviour {
 
 	public Texture aimTexture;
 	public Texture aimTextureNearest;
+
+	private List<Vector3> nearestTargets = new List<Vector3>();
 
 	IEnumerator FindNearestHardpoint() {
 		megaShipGO = GameObject.Find("TargetHardpoints");
@@ -106,20 +109,46 @@ public class RadarManager : MonoBehaviour {
 	}
 
 	void OnGUI() {
+
 		if(megaShipGO) {
+			nearestTargets.Clear();
+
+			float halfWidth = Screen.width/2;
+			float halfHeight = Screen.height/2;
+
 			Shootable[] allShootable = megaShipGO.GetComponentsInChildren<Shootable>();
 			foreach (Shootable child in allShootable){
 				if(child.gameObject.tag == "Hardpoint"){
 					Vector3 position = Camera.main.WorldToScreenPoint(child.transform.position);
 					if(position.z > 0.0f) { // ignore if behind us
-						position.y = Screen.height - position.y;
-						float size = 40.0f;
-						GUI.DrawTexture(new Rect((position.x - (size/2)), (position.y - (size/2)),
-						                         size, size), 
-						                (child.gameObject == megaShipHeart ? aimTextureNearest : aimTexture));
+						float oxa = Mathf.Abs(position.x - halfWidth)/halfWidth;
+						float oya = Mathf.Abs(position.y - halfHeight)/halfHeight;
+						position.z += (oxa+oya)*2000.0f; // bias toward screen center
+						// Debug.Log(position.z);
+						nearestTargets.Add(position);
 					}
 				}
 			}
+
+			nearestTargets.Sort(delegate(Vector3 a, Vector3 b) {
+				return (int)(a.z - b.z);
+			});
+			int drawTotal = 4;
+			int maxDraw = drawTotal;
+			foreach(Vector3 option in nearestTargets) {
+				Vector3 position = option;
+				position.y = Screen.height - position.y;
+				float size = 40.0f;
+				GUI.DrawTexture(new Rect((position.x - (size/2)), (position.y - (size/2)),
+				                         size, size),
+				                (maxDraw == drawTotal ? aimTextureNearest : aimTexture));
+				maxDraw--;
+				if(maxDraw<=0) {
+					break;
+				}
+			}
 		}
+
+
 	}
 }
