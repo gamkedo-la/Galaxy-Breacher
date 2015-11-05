@@ -55,12 +55,11 @@ public class HardPointCounter : MonoBehaviour {
 			if(GameStateStaticProgress.cheatsOn == false) {
 				PlayerPrefs.SetInt(transform.parent.name,1);
 			}
-			StartCoroutine(ReturnToLevelSelectAfterWait());
+			if(PlayerControl.instance) {
+				PlayerControl.instance.FinishedLevel();
+			} else {
+				Application.LoadLevel("Level Select");
+			}
 		}
-	}
-
-	IEnumerator ReturnToLevelSelectAfterWait() {
-		yield return new WaitForSeconds(3.0f);
-		Application.LoadLevel("Level Select");
 	}
 }

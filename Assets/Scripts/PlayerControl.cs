@@ -455,4 +455,13 @@ public class PlayerControl : MonoBehaviour {
 			strafeAxis *= 0.97f;
 		}
 	}
+
+	public void FinishedLevel() {
+		StartCoroutine(ReturnToLevelSelectAfterWait());
+	}
+
+	IEnumerator ReturnToLevelSelectAfterWait() {
+		yield return new WaitForSeconds(5.0f);
+		Application.LoadLevel("Level Select");
+	}
 }
