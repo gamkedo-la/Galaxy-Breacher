@@ -6,6 +6,7 @@ public class LaserPulseCannon : MonoBehaviour {
 	public Transform fireFromPos;
 	public float inaccuracyArcMax = 2.0f;
 	public float ROF = 0.2f;
+	public float maxRange = 5000.0f;
 	public static Transform laserKeeper;
 
 	public bool holdFire = false;
@@ -43,7 +44,7 @@ public class LaserPulseCannon : MonoBehaviour {
 				if(Physics.Raycast( transform.position,
 				                   PlayerControl.instance.transform.position-transform.position,
 				                   out rhInfo,
-				                   5000.0f,
+				                   maxRange,
 				                   layerMask)) {
 					if(rhInfo.collider.tag != "Player") {
 						//Debug.Log ("LOOKING AT SOMETHING ELSE");

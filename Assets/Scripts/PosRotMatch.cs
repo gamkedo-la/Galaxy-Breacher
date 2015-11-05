@@ -3,10 +3,13 @@ using System.Collections;
 
 public class PosRotMatch : MonoBehaviour {
 	public Transform alignMatch;
+	public bool onlyPos = false;
 	
 	// Update is called once per frame
 	void LateUpdate () {
 		alignMatch.position = transform.position;
-		alignMatch.rotation = transform.rotation;
+		if(onlyPos == false) {
+			alignMatch.rotation = transform.rotation;
+		}
 	}
 }

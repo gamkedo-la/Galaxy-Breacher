@@ -5,6 +5,8 @@ using System.Collections;
 public class PlayerControl : MonoBehaviour {
 	public static PlayerControl instance;
 
+	public bool autoLevel = false;
+
 	public float pitchSpeed = 50.0f;
 	public float rollSpeed = 50.0f;
 	public float yawSpeed = 50.0f;
@@ -67,6 +69,10 @@ public class PlayerControl : MonoBehaviour {
 	private float reloadTime = 0.0f;
 	private int dispThrotVal = 0;
 
+	private string dangerBaseText = "";
+	public GameObject optionalDangerHeightMeasure;
+	public Text optionalDangerHeightReadout;
+
 
     void Awake() {
 		instance = this;
@@ -75,6 +81,10 @@ public class PlayerControl : MonoBehaviour {
 	void Start() {
 		SpeedReadout = GameObject.Find("Speed");
 		throttleReadout = GameObject.Find("Throttle");
+
+		if(optionalDangerHeightReadout) {
+			dangerBaseText = optionalDangerHeightReadout.text;
+		}
 
 		mFlash = GetComponent<MuzzleFlash>();
 		mFlash.Reset();
@@ -193,6 +203,15 @@ public class PlayerControl : MonoBehaviour {
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Escape)) {
 			Application.LoadLevel("Level Select");
+		}
+
+		if(optionalDangerHeightMeasure) {
+			int diff = (int)(transform.position.y - optionalDangerHeightMeasure.transform.position.y);
+			if(diff > 0) {
+				optionalDangerHeightReadout.text = dangerBaseText;
+			} else {
+				optionalDangerHeightReadout.text = "" + (-diff) + "m below detection";
+			}
 		}
 
 		float wasThrottle = throttle;
@@ -396,6 +415,13 @@ public class PlayerControl : MonoBehaviour {
 		float smoothK = 0.98f;
 		float dampenedIfTurning = (isTurningDampenSpeed ? throttle*0.45f : throttle);
 		throttleSmooth = smoothK*throttleSmooth + (1.0f-smoothK)*dampenedIfTurning;
+
+		if(autoLevel) {
+			Vector3 fromEuler = transform.rotation.eulerAngles;
+			fromEuler.z = 0.0f;
+			transform.rotation = Quaternion.Slerp( transform.rotation,
+			                                      Quaternion.Euler (fromEuler), Time.deltaTime );
+		}
 
 		if(activelyStrafing == false) {
 			strafeAxis *= 0.97f;

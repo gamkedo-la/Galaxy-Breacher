@@ -4,6 +4,7 @@ using System.Collections;
 public class SoundCenter : MonoBehaviour {
 	public static SoundCenter instance;
 
+	public AudioClip megalaserDie;
 	public AudioClip laserFire;
 	public AudioClip rocketLaunch;
 	public AudioClip playerHurt;
