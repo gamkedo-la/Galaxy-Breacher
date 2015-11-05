@@ -5,6 +5,7 @@ using System.Collections;
 public class GameStateStaticProgress : MonoBehaviour {
 	static public bool cheatsOn = true; // default for testing
 	static public bool uprightDodge = false;
+	public GameObject clearDialogConfirmPanel;
 
 	void Start() {
 		Toggle updateToggle = GetComponent<Toggle>();
@@ -17,6 +18,24 @@ public class GameStateStaticProgress : MonoBehaviour {
 				updateToggle.isOn = !uprightDodge;
 				break;
 			}
+		}
+	}
+
+	public void FairStart() {
+		cheatsOn = false;
+		Application.LoadLevel("Level Select");
+	}
+
+	public void CheatStart() {
+		cheatsOn = true;
+		Application.LoadLevel("Level Select");
+	}
+
+	public void WipeProgress() {
+		Debug.Log("Progress wiped");
+		PlayerPrefs.DeleteAll();
+		if(clearDialogConfirmPanel) {
+			clearDialogConfirmPanel.SetActive(true);
 		}
 	}
 

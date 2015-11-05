@@ -180,7 +180,11 @@ public class PlayerControl : MonoBehaviour {
 		if(rocketReloadTimeLeft <= 0.0f) {
         	damageReadout.text += "ROCKETS: READY";
 		} else {
-			damageReadout.text += "ROCKETS: <"+ Mathf.CeilToInt(rocketReloadTimeLeft*10)+">";
+			int rocketCountdown = Mathf.CeilToInt(rocketReloadTimeLeft*20);
+			if(rocketCountdown > 99) {
+				rocketCountdown = 99;
+			}
+			damageReadout.text += "ROCKETS: <"+ rocketCountdown +">";
 		}
 
     }
@@ -264,7 +268,9 @@ public class PlayerControl : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Return)) {
 			if(rocketSalvo == 0 && rocketReloadTimeLeft <= 0.0f) {
 				rocketSalvo = 5;
-				rocketReloadTimeLeft = rocketReloadTime;
+				if(GameStateStaticProgress.cheatsOn == false) {
+					rocketReloadTimeLeft = rocketReloadTime;
+				}
 			} else {
 				SoundCenter.instance.PlayClipOn(
 					SoundCenter.instance.laserFire, transform.position, 1.0f, transform);
@@ -337,9 +343,13 @@ public class PlayerControl : MonoBehaviour {
 		} else if(Input.GetKey(KeyCode.Space) && gunCooldownTimeLeft <= 0.0f) {
 			gunHeat += timeBetweenShots;
 			if(gunHeat > 1.0f) {
-				gunCooldownTimeLeft = cooldownTimeNeeded;
-				SoundCenter.instance.PlayClipOn(
-					SoundCenter.instance.throttleDown, transform.position, 1.0f, transform);
+				if(GameStateStaticProgress.cheatsOn) {
+					gunHeat = 1.0f;
+				} else {
+					gunCooldownTimeLeft = cooldownTimeNeeded;
+					SoundCenter.instance.PlayClipOn(
+						SoundCenter.instance.throttleDown, transform.position, 1.0f, transform);
+				}
 			}
 
 			mFlash.Strobe();

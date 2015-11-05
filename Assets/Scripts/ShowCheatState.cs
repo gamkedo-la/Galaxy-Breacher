@@ -9,16 +9,16 @@ public class ShowCheatState : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		cheatText = GetComponent<Text>();
-		baseMessage = cheatText.text;
+		baseMessage = "";
 		fixCheatUIPhrase();
 	}
 
 	public void fixCheatUIPhrase() {
 		cheatText.text = baseMessage;
 		if(GameStateStaticProgress.cheatsOn) {
-			cheatText.text += "ON";
+			cheatText.text += "DEGAMIFIED / CHEATS";
 		} else {
-			cheatText.text += "off";
+			cheatText.text += "";
 		} // end of else for showingHelp
 	}
 	
