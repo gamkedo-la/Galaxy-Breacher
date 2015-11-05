@@ -1617,7 +1617,7 @@ GameObject:
   - 114: {fileID: 133364397}
   - 114: {fileID: 133364398}
   m_Layer: 0
-  m_Name: SHELLATOR
+  m_Name: VHERAIN BASE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3097,7 +3097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shader: {fileID: 4800000, guid: e9ba2083ad114a07d000fbfb8d76c639, type: 3}
-  blurAmount: .726000011
+  blurAmount: .902999997
   extraBlur: 0
 --- !u!114 &943545072
 MonoBehaviour:

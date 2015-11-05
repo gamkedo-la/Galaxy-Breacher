@@ -226,6 +226,24 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 11482338, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_Text
+      value: 'WASD to steer, hold Q/E to dodge
+
+        Number keys row 1-9 or 0 set throttle percentage
+
+        Max throttle (0 key) and hold still to hit hyperspeed
+
+        Hold SPACEBAR to fire AutoCannon
+
+        Press RETURN to fire Rockets
+
+        Tap X to perform an automatic 180 turnaround
+
+        Tap Esc to return to level select screen
+
+        ==Press H to hide or show this help text=='
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
   m_IsPrefabParent: 0

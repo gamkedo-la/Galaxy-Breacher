@@ -21,17 +21,19 @@ public class Bumpable : MonoBehaviour {
 		}
 		transform.position += avgNormal.normalized * 15.0f;
 
-		Shootable shootableScript = GetComponent<Shootable>();
-		if(shootableScript && shootableScript.healthLimit > 0) {
-			shootableScript.ExplodeThis();
-		}
-
 		if(fmodSource) {
-			fmodSource.StartEvent();
+			if(PlayerControl.instance.isDead == false) {
+				fmodSource.StartEvent();
+			}
 		} else {
 			SoundCenter.instance.PlayClipOn(
 				SoundCenter.instance.bumpSound, transform.position,
 				1.0f, ( GetComponent<PlayerControl>() ? PlayerControl.instance.transform : null ));
+		}
+
+		Shootable shootableScript = GetComponent<Shootable>();
+		if(shootableScript && shootableScript.healthLimit > 0) {
+			shootableScript.ExplodeThis();
 		}
 	}
 }

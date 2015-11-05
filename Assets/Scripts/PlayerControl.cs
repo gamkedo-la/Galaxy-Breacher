@@ -6,6 +6,7 @@ public class PlayerControl : MonoBehaviour {
 	public static PlayerControl instance;
 
 	public bool autoLevel = false;
+	public bool isDead = false;
 
 	public float pitchSpeed = 50.0f;
 	public float rollSpeed = 50.0f;
@@ -14,7 +15,7 @@ public class PlayerControl : MonoBehaviour {
 	public float maxSpeed = 90.0f;
 
 
-	public float rocketReloadTime = 5.0f;
+	private float rocketReloadTime = 2.5f;
 	private float rocketReloadTimeLeft = 0.0f;
 
 	public float cooldownTimeNeeded = 0.75f;
@@ -36,6 +37,7 @@ public class PlayerControl : MonoBehaviour {
 	private HardPointCounter hardpointRef = null;
     private int hardpointMax = 0;
 
+	public GameObject playerExplodePrefab;
     public GameObject explodePrefabGeneral;
 
 	public GameObject rocketPrefab;
@@ -147,7 +149,7 @@ public class PlayerControl : MonoBehaviour {
 			targetReadout.text = textOut; 
 		}
 		else {
-			targetReadout.text = "MISSION COMPLETE\nTARGET DESTROYED\nHYPERSPACE HOME!!";
+			targetReadout.text = "MISSION COMPLETE\nTARGET DESTROYED\nRETURNING TO COMMAND...";
 		}
     }
 
@@ -205,7 +207,7 @@ public class PlayerControl : MonoBehaviour {
 		if(rocketReloadTimeLeft <= 0.0f) {
         	damageReadout.text += "ROCKETS: READY";
 		} else {
-			int rocketCountdown = Mathf.CeilToInt(rocketReloadTimeLeft*20);
+			int rocketCountdown = Mathf.CeilToInt(rocketReloadTimeLeft*40);
 			if(rocketCountdown > 99) {
 				rocketCountdown = 99;
 			}
@@ -213,11 +215,39 @@ public class PlayerControl : MonoBehaviour {
 		}
 
     }
+
+	public void PlayerDie() {
+		if(isDead == false) {
+			isDead = true;
+			throttleReadout.transform.parent.gameObject.SetActive(false);
+			rmData.radarSphere.transform.parent.gameObject.SetActive(false);
+			GameObject blast = (GameObject)GameObject.Instantiate(playerExplodePrefab, transform.position + transform.forward * 5.0f,
+			                       transform.rotation);
+			blast.transform.parent = transform;
+			Rigidbody myRB = GetComponent<Rigidbody>();
+			myRB.constraints = RigidbodyConstraints.None;
+			myRB.AddTorque(Random.onUnitSphere * 50.0f);
+			myRB.AddForce(Random.onUnitSphere * 1500.0f);
+			FinishedLevel();
+			SoundCenter.instance.PlayClipOn(
+				SoundCenter.instance.megashipBoom, 
+				Camera.main.transform.position, 1.0f,
+				Camera.main.transform);
+		}
+	}
 	
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Escape)) {
 			Application.LoadLevel("Level Select");
+		}
+
+		/*if(Input.GetKeyDown(KeyCode.P)) {
+			PlayerDie();
+		}*/
+
+		if(isDead) {
+			return;
 		}
 
 		if(optionalDangerHeightMeasure) {
@@ -230,26 +260,36 @@ public class PlayerControl : MonoBehaviour {
 		}
 
 		float wasThrottle = throttle;
-		if(Input.GetKeyDown(KeyCode.Alpha1)) {
-			throttle = 0.0f;
-		} else if(Input.GetKeyDown(KeyCode.Alpha2)) {
-			throttle = 0.1f;
-		} else if(Input.GetKeyDown(KeyCode.Alpha3)) {
-			throttle = 0.2f;
-		} else if(Input.GetKeyDown(KeyCode.Alpha4)) {
-			throttle = 0.3f;
-		} else if(Input.GetKeyDown(KeyCode.Alpha5)) {
-			throttle = 0.4f;
-		} else if(Input.GetKeyDown(KeyCode.Alpha6)) {
-			throttle = 0.5f;
-		} else if(Input.GetKeyDown(KeyCode.Alpha7)) {
-			throttle = 0.6f;
-		} else if(Input.GetKeyDown(KeyCode.Alpha8)) {
-			throttle = 0.7f;
-		} else if(Input.GetKeyDown(KeyCode.Alpha9)) {
-			throttle = 0.8f;
-		} else if(Input.GetKeyDown(KeyCode.Alpha0)) {
+
+		if(missionTarget == null) {
+			transform.rotation = 
+				Quaternion.Slerp(transform.rotation,
+				                 Quaternion.LookRotation(Vector3.up), Time.deltaTime * 3.0f);
 			throttle = 1.0f;
+			isHairpin180 = false;
+		} else {
+			if(Input.GetKeyDown(KeyCode.Alpha1)) {
+				throttle = 0.0f;
+			} else if(Input.GetKeyDown(KeyCode.Alpha2)) {
+				throttle = 0.1f;
+			} else if(Input.GetKeyDown(KeyCode.Alpha3)) {
+				throttle = 0.2f;
+			} else if(Input.GetKeyDown(KeyCode.Alpha4)) {
+				throttle = 0.3f;
+			} else if(Input.GetKeyDown(KeyCode.Alpha5)) {
+				throttle = 0.4f;
+			} else if(Input.GetKeyDown(KeyCode.Alpha6)) {
+				throttle = 0.5f;
+			} else if(Input.GetKeyDown(KeyCode.Alpha7)) {
+				throttle = 0.6f;
+			} else if(Input.GetKeyDown(KeyCode.Alpha8)) {
+				throttle = 0.7f;
+			} else if(Input.GetKeyDown(KeyCode.Alpha9)) {
+				throttle = 0.8f;
+			} else if(Input.GetKeyDown(KeyCode.Alpha0)) {
+				throttle = 1.0f;
+			}
+
 		}
 
 		if(throttle > wasThrottle) {
@@ -297,7 +337,7 @@ public class PlayerControl : MonoBehaviour {
 
 		if(rocketReloadTimeLeft > 0.0f) {
 			rocketReloadTimeLeft -= Time.deltaTime;
-			if(rocketReloadTimeLeft <= 0.0f) {
+			if(rocketReloadTimeLeft <= 0.0f || GameStateStaticProgress.cheatsOn) {
 				if(rocketsLoaded < 4) {
 					if(rocketsLoaded == 0) {
 						rocketHUD.gameObject.SetActive(true);
@@ -305,18 +345,19 @@ public class PlayerControl : MonoBehaviour {
 					rocketHUD.sprite = rocketGraphics[rocketsLoaded];
 					rocketsLoaded++;
 					rocketReloadTimeLeft = rocketReloadTime;
-					Debug.Log ("Loaded:" + rocketsLoaded);
 				}
 			}
 		}
 
 		if(Input.GetKeyDown(KeyCode.Return)) {
 			if(rocketSalvo == 0 && rocketsLoaded > 0) {
-				rocketSalvo = rocketsLoaded;
-				rocketsLoaded = 0;
-				rocketHUD.gameObject.SetActive(false);
 				if(GameStateStaticProgress.cheatsOn == false) {
+					rocketSalvo = rocketsLoaded;
 					rocketReloadTimeLeft = rocketReloadTime;
+					rocketsLoaded = 0;
+					rocketHUD.gameObject.SetActive(false);
+				} else {
+					rocketSalvo = rocketsLoaded;
 				}
 			} else {
 				SoundCenter.instance.PlayClipOn(
@@ -324,7 +365,7 @@ public class PlayerControl : MonoBehaviour {
 			}
 		}
 
-		if(Input.GetKeyDown(KeyCode.X) && isHairpin180==false) {
+		if(Input.GetKeyDown(KeyCode.X) && isHairpin180==false && missionTarget != null) {
 			SoundCenter.instance.PlayClipOn(
 				SoundCenter.instance.playerDodge, transform.position, 1.0f, transform);
 			isHairpin180 = true;
@@ -334,7 +375,9 @@ public class PlayerControl : MonoBehaviour {
 					* Quaternion.AngleAxis(180.0f,Vector3.right);
 		}
 
-		if(isHairpin180 == false) {
+		if(missionTarget == null) {
+			// on autopilot, ignore inputs
+		} else if(isHairpin180 == false) {
 			isTurningDampenSpeed = (Mathf.Abs( Input.GetAxis("Vertical") ) > 0.2f ||
 		                        Mathf.Abs( Input.GetAxis("Horizontal") ) > 0.2f);
 
@@ -461,7 +504,7 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 	IEnumerator ReturnToLevelSelectAfterWait() {
-		yield return new WaitForSeconds(5.0f);
+		yield return new WaitForSeconds(6.5f);
 		Application.LoadLevel("Level Select");
 	}
 }

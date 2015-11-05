@@ -60,10 +60,9 @@ public class Shootable : MonoBehaviour {
 		if(isPlayer) {
 			// Application.LoadLevel( Application.loadedLevel );
 			if(GameStateStaticProgress.cheatsOn) {
-				Debug.Log ("GAME OVER!!");
 				alreadyKilledInChain = false; // so can later die if cheats toggled
 			} else {
-				Application.LoadLevel("Level Select");
+				PlayerControl.instance.PlayerDie();
 			}
 		} else {
 			// explosions always at max volume, high priority gameplay event, play on camera

@@ -15260,7 +15260,7 @@ GameObject:
   - 4: {fileID: 601780767}
   - 114: {fileID: 1038025680}
   m_Layer: 0
-  m_Name: ROHOVLA CONVOY
+  m_Name: REMORA CONVOY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -20011,10 +20011,6 @@ Prefab:
       propertyPath: stretchFOV
       value: 
       objectReference: {fileID: 1225159599}
-    - target: {fileID: 11495370, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
-      propertyPath: throttleReadout
-      value: 
-      objectReference: {fileID: 1759881609}
     - target: {fileID: 11495370, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
       propertyPath: damageReadout
       value: 
@@ -29612,12 +29608,6 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
---- !u!114 &1759881609 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 11489632, guid: 9e855992468ab4ddcab2c21f329e637f,
-    type: 2}
-  m_PrefabInternal: {fileID: 122647367}
-  m_Script: {fileID: 708705254, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
 --- !u!1 &1762388912
 GameObject:
   m_ObjectHideFlags: 0
@@ -33452,6 +33442,8 @@ MonoBehaviour:
   megashipExplosionCenter: {fileID: 534083482}
   megashipDeathExplosionFire: {fileID: 198444, guid: f59f4e9ed1a9d4aa6993d8dded06f334,
     type: 2}
+  finalLevelMessage: {fileID: 0}
+  levelTextToHide: {fileID: 0}
 --- !u!1 &2043613431
 GameObject:
   m_ObjectHideFlags: 0

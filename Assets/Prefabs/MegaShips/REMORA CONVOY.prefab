@@ -639,7 +639,7 @@ GameObject:
   - 4: {fileID: 454440}
   - 114: {fileID: 11401636}
   m_Layer: 0
-  m_Name: ROHOVLA CONVOY
+  m_Name: REMORA CONVOY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5069,6 +5069,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 0
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!114 &11407456
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5084,6 +5086,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 0
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!114 &11409710
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5099,6 +5103,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!114 &11414216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5114,6 +5120,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!114 &11417446
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5182,6 +5190,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!114 &11424436
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5197,6 +5207,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!114 &11425674
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5212,6 +5224,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 0
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!114 &11429102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5227,6 +5241,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!114 &11429110
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5273,6 +5289,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!114 &11438994
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5288,6 +5306,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!114 &11441598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5303,6 +5323,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!114 &11444730
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5319,6 +5341,8 @@ MonoBehaviour:
   megashipExplosionCenter: {fileID: 181626}
   megashipDeathExplosionFire: {fileID: 198444, guid: f59f4e9ed1a9d4aa6993d8dded06f334,
     type: 2}
+  finalLevelMessage: {fileID: 0}
+  levelTextToHide: {fileID: 0}
 --- !u!114 &11447766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5349,6 +5373,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!114 &11453392
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5364,6 +5390,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!114 &11461760
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5394,6 +5422,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 0
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!114 &11465390
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5455,6 +5485,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!114 &11481078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5470,6 +5502,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!114 &11481758
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5485,6 +5519,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!114 &11486416
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5562,6 +5598,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 0
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!114 &11497820
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -5577,6 +5615,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!135 &13501114
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -122,7 +122,7 @@ GameObject:
   - 4: {fileID: 411914}
   - 114: {fileID: 11460702}
   m_Layer: 0
-  m_Name: SHELLATOR
+  m_Name: VHERAIN BASE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -751,6 +751,7 @@ MonoBehaviour:
   fireFromPos: {fileID: 417652}
   inaccuracyArcMax: 2
   ROF: 7
+  maxRange: 5000
   holdFire: 0
   needsLOS: 0
   spawnLimited: 1
@@ -769,6 +770,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 0
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!114 &11435338
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -784,6 +787,7 @@ MonoBehaviour:
   fireFromPos: {fileID: 420128}
   inaccuracyArcMax: 2
   ROF: .200000003
+  maxRange: 5000
   holdFire: 0
   needsLOS: 1
   spawnLimited: 0
@@ -798,6 +802,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc9a507bdb78d45c488c4cdb79272355, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noMissing: 0
+  ampEffect: 1
+  timeStretch: 1
+  skipPlayerTest: 0
 --- !u!114 &11460702
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -826,6 +834,8 @@ MonoBehaviour:
   megashipExplosionCenter: {fileID: 193082}
   megashipDeathExplosionFire: {fileID: 198444, guid: f59f4e9ed1a9d4aa6993d8dded06f334,
     type: 2}
+  finalLevelMessage: {fileID: 0}
+  levelTextToHide: {fileID: 0}
 --- !u!114 &11495902
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -853,6 +863,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!135 &13501082
 SphereCollider:
   m_ObjectHideFlags: 1

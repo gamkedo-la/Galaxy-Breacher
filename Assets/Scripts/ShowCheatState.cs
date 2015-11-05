@@ -24,11 +24,11 @@ public class ShowCheatState : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Input.GetKeyDown(KeyCode.J)) {
+		/*if(Input.GetKeyDown(KeyCode.J)) {
 			GameStateStaticProgress.cheatsOn =
 				!GameStateStaticProgress.cheatsOn;
 			fixCheatUIPhrase();
-		} // end of if H key
+		} */ // end of if H key
 	} // end of Update
 	
 }

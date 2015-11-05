@@ -39,6 +39,10 @@ public class LaserPulseCannon : MonoBehaviour {
 				yield return new WaitForSeconds(ROF);
 			}
 
+			if(PlayerControl.instance.isDead) {
+				break;
+			}
+
 			if(holdFire) {
 				continue;
 			}

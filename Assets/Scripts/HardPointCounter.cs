@@ -46,13 +46,14 @@ public class HardPointCounter : MonoBehaviour {
 		if(hardpointCount<=0) {
 			GameObject.Instantiate(megashipDeathExplosionFire,
 			                       megashipExplosionCenter.transform.position,
-			                       megashipExplosionCenter.transform.rotation);
+			                       megashipExplosionCenter.transform.rotation *
+			                       Quaternion.AngleAxis(90.0f,Vector3.right) );
 			SoundCenter.instance.PlayClipOn(
 				SoundCenter.instance.megashipBoom, 
 				Camera.main.transform.position, 1.0f,
 				Camera.main.transform);
 			Destroy( megashipParent, 0.45f );
-			if(GameStateStaticProgress.cheatsOn == false) {
+			if(GameStateStaticProgress.cheatsOn == false && PlayerControl.instance.isDead == false) {
 				PlayerPrefs.SetInt(transform.parent.name,1);
 			}
 			if(PlayerControl.instance) {

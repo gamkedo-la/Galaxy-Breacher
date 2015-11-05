@@ -10,12 +10,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes Levels/Level Select.unity
   - enabled: 1
-    path: Assets/Scenes Levels/VHERAIN TITAN.unity
+    path: Assets/Scenes Levels/TITAN.unity
   - enabled: 1
-    path: Assets/Scenes Levels/FHTAGN.unity
+    path: Assets/Scenes Levels/SEPTRA.unity
   - enabled: 1
-    path: Assets/Scenes Levels/SHELLATOR.unity
+    path: Assets/Scenes Levels/VHERAIN BASE.unity
   - enabled: 1
-    path: Assets/Scenes Levels/ROHOVLA CONVOY.unity
+    path: Assets/Scenes Levels/REMORA CONVOY.unity
   - enabled: 1
-    path: Assets/Scenes Levels/SWORD.unity
+    path: Assets/Scenes Levels/GARVEL.unity

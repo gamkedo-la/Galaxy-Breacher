@@ -20,6 +20,11 @@ public class DeadlyLaserScan : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Quaternion targetRot;
+
+		if(PlayerControl.instance.isDead) {
+			return;
+		}
+
 		if(playerPos.position.y > dangerHeight.position.y) {
 			dangerTime += Time.deltaTime;
 			targetRot = Quaternion.LookRotation( playerPos.position - transform.position );
@@ -33,8 +38,8 @@ public class DeadlyLaserScan : MonoBehaviour {
 				if(screenHeatcol.a < 1.0f) {
 					screenHeatcol.a += Time.deltaTime;
 					if(screenHeatcol.a > 1.0f) {
-						screenHeatcol.a = 1.0f;
-						Application.LoadLevel("Level Select");
+						screenHeatcol.a = 0.0f;
+						PlayerControl.instance.PlayerDie();
 					}
 					screenHeat.color = screenHeatcol;
 				}

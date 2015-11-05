@@ -639,27 +639,21 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'NAVIGATE: WASD to steer, hold Q/E to dodge
+  m_Text: 'WASD to steer, hold Q/E to dodge
 
-    Number key row 1-9 & 0 set throttle as %
+    Number keys row 1-9 or 0 set throttle percentage
 
-    Max throttle (0 key) and don''t steer to hit hyperdrive
+    Max throttle (0 key) and hold still to hit hyperspeed
 
     Hold SPACEBAR to fire AutoCannon
 
-    Press RETURN to fire Rocket Salvo
+    Press RETURN to fire Rockets
 
-    Tap X for 180 reversal
+    Tap X to perform an automatic 180 turnaround
 
     Tap Esc to return to level select screen
 
-    Crashing or dying triggers restart
-
-    ===Press H to toggle this wall of help text===
-
-    Song by Kevin MacLeod (Creative Commons)
-
-    [Full game credits coming soon]'
+    ==Press H to hide or show this help text=='
 --- !u!114 &11489632
 MonoBehaviour:
   m_ObjectHideFlags: 1
