@@ -1540,9 +1540,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 672234174}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: 1}
-  m_AnchorMax: {x: .5, y: 1}
-  m_AnchoredPosition: {x: 46.4999924, y: 0}
+  m_AnchorMin: {x: .5, y: .965779424}
+  m_AnchorMax: {x: .5, y: .965779424}
+  m_AnchoredPosition: {x: 46.4999924, y: -8}
   m_SizeDelta: {x: 92.9999847, y: 36}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &147307646
@@ -1570,16 +1570,14 @@ MonoBehaviour:
     m_FontSize: 10
     m_FontStyle: 0
     m_BestFit: 1
-    m_MinSize: 10
+    m_MinSize: 4
     m_MaxSize: 40
     m_Alignment: 1
     m_RichText: 1
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Click on any Mega Ship
-
-    to hyperspace & battle!'
+  m_Text: Choose Your Next Battle
 --- !u!222 &147307647
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1845,9 +1843,9 @@ RectTransform:
   - {fileID: 1207834808}
   m_Father: {fileID: 672234174}
   m_RootOrder: 1
-  m_AnchorMin: {x: .5, y: 0}
-  m_AnchorMax: {x: .5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: .5, y: .0570000038}
+  m_AnchorMax: {x: .5, y: .0570000038}
+  m_AnchoredPosition: {x: 0, y: .899999619}
   m_SizeDelta: {x: 360, y: 20}
   m_Pivot: {x: .5, y: 0}
 --- !u!114 &465541140
@@ -2329,7 +2327,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'HYPERDRIVE TO
+  m_Text: 'TRAVEL TO
 
 '
 --- !u!222 &780842008
@@ -5317,7 +5315,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Roll during dodge (better control but disorienting)
+  m_Text: Roll during dodge (greater agility, but disorienting!)
 --- !u!222 &1207834810
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -7999,6 +7997,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   noMissing: 0
+  ampEffect: 1
+  timeStretch: 1
+  skipPlayerTest: 0
 --- !u!135 &1952431117
 SphereCollider:
   m_ObjectHideFlags: 0
