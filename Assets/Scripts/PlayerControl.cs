@@ -149,7 +149,7 @@ public class PlayerControl : MonoBehaviour {
 			targetReadout.text = textOut; 
 		}
 		else {
-			targetReadout.text = "MISSION COMPLETE\nTARGET DESTROYED\nRETURNING TO COMMAND...";
+			targetReadout.text = "MISSION COMPLETE\nTARGET DESTROYED\nRETURNING...";
 		}
     }
 

@@ -1105,6 +1105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   whichPanel: {fileID: 1409690272}
+  thingToTurnOpposite: {fileID: 0}
 --- !u!114 &804529283
 MonoBehaviour:
   m_ObjectHideFlags: 0

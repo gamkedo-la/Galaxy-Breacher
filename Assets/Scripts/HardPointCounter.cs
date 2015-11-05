@@ -7,8 +7,10 @@ public class HardPointCounter : MonoBehaviour {
 	public GameObject megashipExplosionCenter;
 	public GameObject megashipDeathExplosionFire;
 
-	public GameObject finalLevelMessage;
-	public GameObject levelTextToHide;
+	public GameObject endOfRoundMessage;
+
+	/*public GameObject finalLevelMessage;
+	public GameObject levelTextToHide;*/
 
 	void Awake () { // Awake since needs to happen before player Start
 		Shootable[] allShoot = GetComponentsInChildren<Shootable>();
@@ -22,14 +24,24 @@ public class HardPointCounter : MonoBehaviour {
 	void Start() {
 		if(PlayerControl.instance == null) {
 			if( GameStateStaticProgress.cheatsOn == false &&
-			    PlayerPrefs.GetInt(transform.parent.name,0) == 1) {
+			   PlayerPrefs.GetInt(transform.parent.name,0) == 2) {
+				if(endOfRoundMessage != null) {
+					endOfRoundMessage.SetActive(true);
+				}
+				if(transform.parent.name != "VHERAIN BASE") {
+					PlayerPrefs.SetInt(transform.parent.name,1);
+				}
+			}
 
-				if(finalLevelMessage != null) {
+			if( GameStateStaticProgress.cheatsOn == false &&
+			    PlayerPrefs.GetInt(transform.parent.name,0) != 0) {
+
+				/*if(finalLevelMessage != null) {
 					finalLevelMessage.SetActive(true);
 				}
 				if(levelTextToHide != null) {
 					levelTextToHide.SetActive(false);
-				}
+				}*/
 
 				GameObject wreckage = (GameObject)GameObject.Instantiate(
 					Resources.Load("SmashedShip"),
@@ -54,7 +66,7 @@ public class HardPointCounter : MonoBehaviour {
 				Camera.main.transform);
 			Destroy( megashipParent, 0.45f );
 			if(GameStateStaticProgress.cheatsOn == false && PlayerControl.instance.isDead == false) {
-				PlayerPrefs.SetInt(transform.parent.name,1);
+				PlayerPrefs.SetInt(transform.parent.name,2);
 			}
 			if(PlayerControl.instance) {
 				PlayerControl.instance.FinishedLevel();
