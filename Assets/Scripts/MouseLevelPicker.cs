@@ -17,7 +17,6 @@ public class MouseLevelPicker : MonoBehaviour {
 		}
 
 		RaycastHit rhInfo;
-		Vector3 shootToward;
 		Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
 		
 		if(Physics.Raycast(mouseRay, out rhInfo, 50000.0f) &&
@@ -25,6 +24,10 @@ public class MouseLevelPicker : MonoBehaviour {
 
 			levName = rhInfo.collider.transform.parent.name;
 			// Debug.Log(levName);
+			if(Input.GetKeyDown(KeyCode.X)) {
+				PlayerPrefs.SetInt(levName,1);
+			}
+
 			if(Input.GetMouseButton(0)) {
 				Application.LoadLevel(levName);
 			}

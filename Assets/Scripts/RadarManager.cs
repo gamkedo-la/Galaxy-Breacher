@@ -76,7 +76,6 @@ public class RadarManager : MonoBehaviour {
 			if(nearestTargets.Count > drawTotal) {
 				nearestTargets.RemoveRange(drawTotal, 
 			                           nearestTargets.Count-drawTotal);
-				Debug.Log ("new length:" + nearestTargets.Count);
 			}
 
 			foreach (Shootable child in nearestTargets){

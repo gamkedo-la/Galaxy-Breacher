@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 
 public class GameStateStaticProgress : MonoBehaviour {
-	static public bool cheatsOn = true; // default for testing
+	static public bool cheatsOn = false; // default for testing
 	static public bool uprightDodge = false;
 	public GameObject clearDialogConfirmPanel;
 
@@ -37,6 +37,15 @@ public class GameStateStaticProgress : MonoBehaviour {
 		if(clearDialogConfirmPanel) {
 			clearDialogConfirmPanel.SetActive(true);
 		}
+	}
+
+	public void BackToTitle() {
+		Application.LoadLevel("TitleLogoSplashIntro");
+	}
+
+	public void WipeProgressAndReturnToTitle() {
+		PlayerPrefs.DeleteAll();
+		Application.LoadLevel("TitleLogoSplashIntro");
 	}
 
 	public void CheatToggle(bool newValue) {

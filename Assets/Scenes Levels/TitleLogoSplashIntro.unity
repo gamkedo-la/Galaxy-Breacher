@@ -648,8 +648,8 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 58, y: 18.3000031}
+  m_AnchoredPosition: {x: -7, y: 0}
+  m_SizeDelta: {x: 61.5999985, y: 17.7999992}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &804529282
 MonoBehaviour:
@@ -1255,6 +1255,10 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 11494074, guid: 7d268f325ad9746b2a93cbb9388a364c, type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d268f325ad9746b2a93cbb9388a364c, type: 2}
   m_IsPrefabParent: 0
@@ -1292,7 +1296,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 16, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1409690274
 MonoBehaviour:
@@ -1386,7 +1390,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1713893729}
-        m_MethodName: FairStart
+        m_MethodName: CheatStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

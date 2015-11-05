@@ -63,6 +63,7 @@ public class PlayerControl : MonoBehaviour {
 	private Quaternion spin180From;
 	private bool isHairpin180 = false;
 
+	private int rocketsLoaded = 4;
 	private int rocketSalvo = 0;
 
 	private bool activelyStrafing = false;
@@ -75,6 +76,8 @@ public class PlayerControl : MonoBehaviour {
 	public GameObject optionalDangerHeightMeasure;
 	public Text optionalDangerHeightReadout;
 
+	private Image rocketHUD;
+	public Sprite[] rocketGraphics;
 
     void Awake() {
 		instance = this;
@@ -82,6 +85,8 @@ public class PlayerControl : MonoBehaviour {
 
 	void Start() {
 		rmData = GetComponent<RadarManager>();
+		rocketHUD = GameObject.Find ("fake weapon hud").GetComponent<Image>();;
+		rocketHUD.gameObject.SetActive(true);
 		SpeedReadout = GameObject.Find("Speed");
 		throttleReadout = GameObject.Find("Throttle");
 
@@ -147,7 +152,6 @@ public class PlayerControl : MonoBehaviour {
     }
 
     void updateThrottleReadout() {
-		string textOut = "";
 		bool wasMaxThrottle = maxThrottle;
 
 		UI_SpeedReadout.currentSpeed = (int)(throttleSmooth * 10);
@@ -192,7 +196,7 @@ public class PlayerControl : MonoBehaviour {
 
         //Heat: NORMAL
 		if(gunCooldownTimeLeft > 0.0f) {
-			damageReadout.text += "MG HEAT: LOCKED\n";
+			damageReadout.text += "MG HEAT: HOLD\n";
 		} else {
 			damageReadout.text += "MG HEAT: "+ Mathf.CeilToInt(gunHeat*100) +"%\n";
 		}
@@ -293,11 +297,24 @@ public class PlayerControl : MonoBehaviour {
 
 		if(rocketReloadTimeLeft > 0.0f) {
 			rocketReloadTimeLeft -= Time.deltaTime;
+			if(rocketReloadTimeLeft <= 0.0f) {
+				if(rocketsLoaded < 4) {
+					if(rocketsLoaded == 0) {
+						rocketHUD.gameObject.SetActive(true);
+					}
+					rocketHUD.sprite = rocketGraphics[rocketsLoaded];
+					rocketsLoaded++;
+					rocketReloadTimeLeft = rocketReloadTime;
+					Debug.Log ("Loaded:" + rocketsLoaded);
+				}
+			}
 		}
 
 		if(Input.GetKeyDown(KeyCode.Return)) {
-			if(rocketSalvo == 0 && rocketReloadTimeLeft <= 0.0f) {
-				rocketSalvo = 4;
+			if(rocketSalvo == 0 && rocketsLoaded > 0) {
+				rocketSalvo = rocketsLoaded;
+				rocketsLoaded = 0;
+				rocketHUD.gameObject.SetActive(false);
 				if(GameStateStaticProgress.cheatsOn == false) {
 					rocketReloadTimeLeft = rocketReloadTime;
 				}
@@ -371,7 +388,7 @@ public class PlayerControl : MonoBehaviour {
         if (reloadTime >= 0.0f) {
 			reloadTime -= Time.deltaTime;
 		} else if(Input.GetKey(KeyCode.Space) && gunCooldownTimeLeft <= 0.0f) {
-			gunHeat += timeBetweenShots;
+			gunHeat += timeBetweenShots * 0.5f;
 			if(gunHeat > 1.0f) {
 				if(GameStateStaticProgress.cheatsOn) {
 					gunHeat = 1.0f;

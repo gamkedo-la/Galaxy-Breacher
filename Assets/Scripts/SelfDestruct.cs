@@ -2,7 +2,6 @@
 using System.Collections;
 
 public class SelfDestruct : MonoBehaviour {
-	private float timeAlive = 10.0f;
 	private float initialRange;
 
 	public float lightFadeTime = 0.5f;

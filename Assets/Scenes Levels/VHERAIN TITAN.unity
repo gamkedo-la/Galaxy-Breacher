@@ -178,6 +178,54 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11491056, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11491056, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_Color.r
+      value: .650980413
+      objectReference: {fileID: 0}
+    - target: {fileID: 11491056, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_Color.g
+      value: .635294139
+      objectReference: {fileID: 0}
+    - target: {fileID: 11491056, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 22414108, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 22438450, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 22491796, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_RootOrder
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 22412688, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 22425996, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 22458956, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 22479528, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 22425956, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
   m_IsPrefabParent: 0
@@ -267,10 +315,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rate: 1.39999998
---- !u!1 &248303743 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 117856, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
-  m_PrefabInternal: {fileID: 122647367}
 --- !u!1001 &563673961
 Prefab:
   m_ObjectHideFlags: 0
@@ -487,10 +531,6 @@ MonoBehaviour:
 Transform:
   m_PrefabParentObject: {fileID: 470314, guid: 26211f59293c04c7cb981dfa2f26aa5c, type: 2}
   m_PrefabInternal: {fileID: 2137011060}
---- !u!1 &1219981232 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 101472, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
-  m_PrefabInternal: {fileID: 122647367}
 --- !u!20 &1225159599 stripped
 Camera:
   m_PrefabParentObject: {fileID: 2024316, guid: 26211f59293c04c7cb981dfa2f26aa5c,
@@ -642,10 +682,6 @@ Prefab:
       value: 
       objectReference: {fileID: 1225159599}
     - target: {fileID: 11495370, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
-      propertyPath: throttleReadout
-      value: 
-      objectReference: {fileID: 248303743}
-    - target: {fileID: 11495370, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
       propertyPath: damageReadout
       value: 
       objectReference: {fileID: 14560380}
@@ -657,18 +693,6 @@ Prefab:
       propertyPath: missionTarget
       value: 
       objectReference: {fileID: 1038025679}
-    - target: {fileID: 11487784, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495370, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
-      propertyPath: cooldownTimeNeeded
-      value: 1.79999995
-      objectReference: {fileID: 0}
-    - target: {fileID: 11495370, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
-      propertyPath: SpeedReadout
-      value: 
-      objectReference: {fileID: 1219981232}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
   m_IsPrefabParent: 0

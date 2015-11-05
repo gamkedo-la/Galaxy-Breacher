@@ -761,6 +761,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 0
   isMegaShipHardPart: 0
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!114 &11487784
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -834,6 +836,7 @@ MonoBehaviour:
   scanRange: 3000
   aimTexture: {fileID: 2800000, guid: 391459dda2bca44139eab52c2f6b5eae, type: 3}
   aimTextureNearest: {fileID: 2800000, guid: f5bbaf5d16b31469ba1a93c319cb4302, type: 3}
+  nearestTargets: []
 --- !u!114 &11495370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -845,6 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f22e547cae034998b6994461a5f675c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  autoLevel: 0
   pitchSpeed: 30
   rollSpeed: 150
   yawSpeed: 35
@@ -861,9 +865,14 @@ MonoBehaviour:
   explodePrefabGeneral: {fileID: 134378, guid: 41d3e993f60cf4472b0f8355a9e9f3a2, type: 2}
   rocketPrefab: {fileID: 166474, guid: 175207689e9e7400598e39615e0e93df, type: 2}
   rocketHardpoint: {fileID: 172526}
-  throttleReadout: {fileID: 0}
-  SpeedReadout: {fileID: 0}
   spawnUponShotHit: {fileID: 134378, guid: fd9a1c79e6af14cc0af353657b969aad, type: 2}
+  optionalDangerHeightMeasure: {fileID: 0}
+  optionalDangerHeightReadout: {fileID: 0}
+  rocketGraphics:
+  - {fileID: 21300000, guid: 5f9ae8f1e1c084304aa50d346a436552, type: 3}
+  - {fileID: 21300000, guid: ef27d9f6391214c619370a3c49cab708, type: 3}
+  - {fileID: 21300000, guid: 6a0e2418626d84b04ae25573b8ec598b, type: 3}
+  - {fileID: 21300000, guid: 3fecfb276bd1e434281b5d19e229f81e, type: 3}
 --- !u!124 &12467568
 Behaviour:
   m_ObjectHideFlags: 1
