@@ -1566,6 +1566,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!65 &170825355
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5326,6 +5328,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!65 &431963995
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6678,6 +6682,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!65 &549119044
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9011,6 +9017,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!65 &660061936
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -9075,6 +9083,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!65 &694381980
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11665,6 +11675,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!65 &796130321
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20065,6 +20077,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!65 &1275962119
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -25829,6 +25843,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!65 &1509782038
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28135,6 +28151,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!65 &1640579487
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28195,6 +28213,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!65 &1657408511
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28311,6 +28331,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!65 &1711762348
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -28371,6 +28393,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!65 &1719741046
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30777,7 +30801,7 @@ Transform:
   - {fileID: 102984083}
   - {fileID: 683252827}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!4 &1789480964
 Transform:
   m_ObjectHideFlags: 0
@@ -30825,6 +30849,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!65 &1789480967
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -33284,6 +33310,8 @@ MonoBehaviour:
   reportDeath: 0
   canBeTarget: 1
   isMegaShipHardPart: 1
+  lockDisplay: {x: 0, y: 0, z: 0}
+  playerLOS: 0
 --- !u!65 &1952759523
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -34634,48 +34662,6 @@ Transform:
   - {fileID: 1430942742}
   m_Father: {fileID: 549119041}
   m_RootOrder: 1
---- !u!1001 &2126649061
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 435338, guid: cc8fffaeff3524111a20b2550138ecdb, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 3413.80957
-      objectReference: {fileID: 0}
-    - target: {fileID: 435338, guid: cc8fffaeff3524111a20b2550138ecdb, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -1202
-      objectReference: {fileID: 0}
-    - target: {fileID: 435338, guid: cc8fffaeff3524111a20b2550138ecdb, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: -2918.30933
-      objectReference: {fileID: 0}
-    - target: {fileID: 435338, guid: cc8fffaeff3524111a20b2550138ecdb, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 435338, guid: cc8fffaeff3524111a20b2550138ecdb, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: -.707106709
-      objectReference: {fileID: 0}
-    - target: {fileID: 435338, guid: cc8fffaeff3524111a20b2550138ecdb, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 435338, guid: cc8fffaeff3524111a20b2550138ecdb, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: .707106948
-      objectReference: {fileID: 0}
-    - target: {fileID: 435338, guid: cc8fffaeff3524111a20b2550138ecdb, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: cc8fffaeff3524111a20b2550138ecdb, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1001 &2137011060
 Prefab:
   m_ObjectHideFlags: 0

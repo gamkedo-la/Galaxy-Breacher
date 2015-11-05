@@ -9,6 +9,9 @@ public class Shootable : MonoBehaviour {
 	public bool isMegaShipHardPart = false;
 	private bool alreadyKilledInChain = false;
 
+	public Vector3 lockDisplay = Vector3.zero;
+	public bool playerLOS = false;
+
 	private bool isPlayer;
 
 	void Start() {

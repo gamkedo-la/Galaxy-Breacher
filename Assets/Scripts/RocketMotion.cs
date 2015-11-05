@@ -38,9 +38,10 @@ public class RocketMotion : MonoBehaviour {
 					if(shootMeScript && shootMeScript.healthLimit > 0 && shootMeScript.canBeTarget) {
 						RaycastHit rhInfo;
 						Vector3 toward = consider.transform.position-transform.position;
+						int layerMask = ~(1<<12);
 						if(Physics.Raycast( transform.position + toward.normalized * 5.0f,
 						                   toward,
-						                   out rhInfo) &&
+						                   out rhInfo,19999.0f,layerMask) &&
 						   rhInfo.transform.gameObject == consider.gameObject) {
 							target = consider.transform;
 						}

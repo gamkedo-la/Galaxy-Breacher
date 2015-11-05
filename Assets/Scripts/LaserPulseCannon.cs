@@ -8,6 +8,7 @@ public class LaserPulseCannon : MonoBehaviour {
 	public float ROF = 0.2f;
 	public float maxRange = 5000.0f;
 	public static Transform laserKeeper;
+	public static Transform shipKeeper;
 
 	public bool holdFire = false;
 	public bool needsLOS = true;
@@ -20,6 +21,9 @@ public class LaserPulseCannon : MonoBehaviour {
 			StartCoroutine(FireLaser());
 			if(laserKeeper == null) {
 				laserKeeper = GameObject.Find("LaserKeeper").transform;
+			}
+			if(shipKeeper == null) {
+				shipKeeper = GameObject.Find("MegaShipCenter").transform;
 			}
 		}
 	}
@@ -78,7 +82,11 @@ public class LaserPulseCannon : MonoBehaviour {
 				GameObject newGO = (GameObject)GameObject.Instantiate( laserPrefab,
 				                      fireFromPos.position + missQuat * skipBarrel * 30.0f,
 				                              aimToFire  * Quaternion.AngleAxis(90.0f,Vector3.right));
-				newGO.transform.parent = laserKeeper;
+				if(newGO.GetComponent<LittleShipAI>() != null) {
+					newGO.transform.parent = shipKeeper;
+				} else {
+					newGO.transform.parent = laserKeeper;
+				}
 				if(spawnLimited) {
 					Shootable reportWhenDead = newGO.GetComponent<Shootable>();
 					reportWhenDead.reportDeath = true;

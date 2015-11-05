@@ -44,6 +44,8 @@ public class PlayerControl : MonoBehaviour {
 	private GameObject throttleReadout;
 	private GameObject SpeedReadout;
 
+	private RadarManager rmData;
+
 	private UI_Speed UI_SpeedReadout;
 	private UI_Speed UI_ThrottleReadout;
 
@@ -79,6 +81,7 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 	void Start() {
+		rmData = GetComponent<RadarManager>();
 		SpeedReadout = GameObject.Find("Speed");
 		throttleReadout = GameObject.Find("Throttle");
 
@@ -109,6 +112,14 @@ public class PlayerControl : MonoBehaviour {
 				                       rocketHardpoint.transform.rotation) as GameObject;
 				RocketMotion rmScript = tempRocket.GetComponent<RocketMotion>();
 				rmScript.inheritSpeedBoost( maxSpeed * throttleSmooth );
+
+				if(rmData.nearestTargets != null && rocketSalvo < rmData.nearestTargets.Count && 
+				   rmData.nearestTargets[rocketSalvo] &&
+				   rmData.nearestTargets[rocketSalvo].playerLOS) {
+					RocketMotion rocket = tempRocket.GetComponent<RocketMotion>();
+					// Debug.Log ("Adding rocket #"+rocketSalvo+" to " +rmData.nearestTargets.Count);
+					rocket.target = rmData.nearestTargets[rocketSalvo].transform;
+				}
 			}
 
 			dispThrotVal = Mathf.CeilToInt(asymThrot * 239
