@@ -19,14 +19,14 @@ Material:
         first:
           name: _MainTex
         second:
-          m_Texture: {fileID: 2800000, guid: daaac709e73a144779f5715cb1de4cd1, type: 3}
+          m_Texture: {fileID: 0}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
         first:
           name: _BumpMap
         second:
-          m_Texture: {fileID: 2800000, guid: 9818361de91f04563bbc044a599d548b, type: 3}
+          m_Texture: {fileID: 2800000, guid: bcb9a180e2471478682cc14b7d562fee, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -34,6 +34,13 @@ Material:
           name: _DetailNormalMap
         second:
           m_Texture: {fileID: 0}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _MetallicGlossMap
+        second:
+          m_Texture: {fileID: 2800000, guid: bcb9a180e2471478682cc14b7d562fee, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -54,7 +61,7 @@ Material:
         first:
           name: _EmissionMap
         second:
-          m_Texture: {fileID: 2800000, guid: 9818361de91f04563bbc044a599d548b, type: 3}
+          m_Texture: {fileID: 2800000, guid: bcb9a180e2471478682cc14b7d562fee, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
       data:
@@ -69,13 +76,6 @@ Material:
           name: _DetailAlbedoMap
         second:
           m_Texture: {fileID: 0}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
-          name: _MetallicGlossMap
-        second:
-          m_Texture: {fileID: 2800000, guid: daaac709e73a144779f5715cb1de4cd1, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -93,10 +93,6 @@ Material:
         second: .5
       data:
         first:
-          name: _Parallax
-        second: .0199999996
-      data:
-        first:
           name: _ZWrite
         second: 1
       data:
@@ -105,8 +101,16 @@ Material:
         second: .5
       data:
         first:
+          name: _Metallic
+        second: 0
+      data:
+        first:
           name: _BumpScale
-        second: 1
+        second: .300000012
+      data:
+        first:
+          name: _Parallax
+        second: .0199999996
       data:
         first:
           name: _OcclusionStrength
@@ -123,16 +127,12 @@ Material:
         first:
           name: _Mode
         second: 0
-      data:
-        first:
-          name: _Metallic
-        second: 0
     m_Colors:
       data:
         first:
           name: _EmissionColor
-        second: {r: .0980392173, g: .0627451017, b: .0627451017, a: 1}
+        second: {r: .0588235259, g: .0588235259, b: .0588235259, a: 1}
       data:
         first:
           name: _Color
-        second: {r: .389705896, g: .389705896, b: .389705896, a: 1}
+        second: {r: .147058845, g: .147058845, b: .147058845, a: 1}
