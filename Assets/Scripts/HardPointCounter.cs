@@ -51,6 +51,14 @@ public class HardPointCounter : MonoBehaviour {
 			}
 		}
 	}
+
+	public void Update() {
+		if(Input.GetKeyDown( KeyCode.U) ) {
+			while(hardpointCount>0) {
+				RemoveHardpoint();
+			}
+		}
+	}
 	
 	public void RemoveHardpoint() {
 		hardpointCount--;

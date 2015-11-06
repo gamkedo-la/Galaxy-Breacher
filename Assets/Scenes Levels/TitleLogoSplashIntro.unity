@@ -376,12 +376,13 @@ Prefab:
     - target: {fileID: 11451556, guid: 9555fbdb786984477808f2b4e20c0c16, type: 2}
       propertyPath: m_Text
       value: "Created by members of Gamkedo\xAE LA Game Dev Club: http://LAGameDevs.com\n\nDAN
-        LAZAR\nSquid Ship Model, Interceptor Model\n\nSASHA RENEAU\nShip Textures\n\nSDONAI\nUI
-        Design and Implementation\n\nNATE CHAMBERS\nSound Effects and Original Music
-        (In-Game)\n\nLEIAH FOURNIER\nNarrative Design\n\nJOE SPRADLEY\nCreative Commons
-        Music* Selection (Title / Level Select)\n\nCHRIS DELEON\nProject Lead, Gameplay
-        Programming, Level Design\n\n* The Lift by Kevin MacLeod (incompetech.com)
-        \nLicensed under Creative Commons: By Attribution 3.0\nhttp://creativecommons.org/licenses/by/3.0/"
+        LAZAR\nSquid Ship Model, Interceptor Model\n\nSASHA RENEAU\nShip Textures,
+        Game Logo\n\nSDONAI\nUI Design and Implementation\n\nNATE CHAMBERS\nSound
+        Effects and Original Music (In-Game)\n\nLEIAH FOURNIER\nNarrative Design\n\nJOE
+        SPRADLEY\nCreative Commons Music* Selection (Title / Level Select)\n\nCHRIS
+        DELEON\nProject Lead, Gameplay Programming, Level Design\n\n* The Lift by
+        Kevin MacLeod (incompetech.com) \nLicensed under Creative Commons: By Attribution
+        3.0\nhttp://creativecommons.org/licenses/by/3.0/"
       objectReference: {fileID: 0}
     - target: {fileID: 22479606, guid: 9555fbdb786984477808f2b4e20c0c16, type: 2}
       propertyPath: m_AnchoredPosition.y

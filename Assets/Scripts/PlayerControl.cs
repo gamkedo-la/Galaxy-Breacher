@@ -149,7 +149,7 @@ public class PlayerControl : MonoBehaviour {
 			targetReadout.text = textOut; 
 		}
 		else {
-			targetReadout.text = "MISSION COMPLETE\nTARGET DESTROYED\nRETURNING...";
+			targetReadout.text = "MISSION COMPLETE\nTARGET DESTROYED\nNOW RETURNING...";
 		}
     }
 
@@ -261,13 +261,13 @@ public class PlayerControl : MonoBehaviour {
 
 		float wasThrottle = throttle;
 
-		if(missionTarget == null) {
+		/*if(missionTarget == null) {
 			transform.rotation = 
 				Quaternion.Slerp(transform.rotation,
 				                 Quaternion.LookRotation(Vector3.up), Time.deltaTime * 3.0f);
 			throttle = 1.0f;
 			isHairpin180 = false;
-		} else {
+		} else {*/
 			if(Input.GetKeyDown(KeyCode.Alpha1)) {
 				throttle = 0.0f;
 			} else if(Input.GetKeyDown(KeyCode.Alpha2)) {
@@ -290,7 +290,7 @@ public class PlayerControl : MonoBehaviour {
 				throttle = 1.0f;
 			}
 
-		}
+		//}
 
 		if(throttle > wasThrottle) {
 			SoundCenter.instance.PlayClipOn(
@@ -365,7 +365,7 @@ public class PlayerControl : MonoBehaviour {
 			}
 		}
 
-		if(Input.GetKeyDown(KeyCode.X) && isHairpin180==false && missionTarget != null) {
+		if(Input.GetKeyDown(KeyCode.X) && isHairpin180==false /*&& missionTarget != null*/) {
 			SoundCenter.instance.PlayClipOn(
 				SoundCenter.instance.playerDodge, transform.position, 1.0f, transform);
 			isHairpin180 = true;
@@ -375,9 +375,9 @@ public class PlayerControl : MonoBehaviour {
 					* Quaternion.AngleAxis(180.0f,Vector3.right);
 		}
 
-		if(missionTarget == null) {
+		/*if(missionTarget == null) {
 			// on autopilot, ignore inputs
-		} else if(isHairpin180 == false) {
+		} else*/ if(isHairpin180 == false) {
 			isTurningDampenSpeed = (Mathf.Abs( Input.GetAxis("Vertical") ) > 0.2f ||
 		                        Mathf.Abs( Input.GetAxis("Horizontal") ) > 0.2f);
 
@@ -504,7 +504,7 @@ public class PlayerControl : MonoBehaviour {
 	}
 
 	IEnumerator ReturnToLevelSelectAfterWait() {
-		yield return new WaitForSeconds(6.5f);
+		yield return new WaitForSeconds(5.75f);
 		Application.LoadLevel("Level Select");
 	}
 }
