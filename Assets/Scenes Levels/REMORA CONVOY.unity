@@ -203,6 +203,279 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 24003579}
   m_Mesh: {fileID: 4300000, guid: ca2f1851457404bfb8bc64ba01af72d8, type: 3}
+--- !u!1 &59400613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 59400618}
+  - 20: {fileID: 59400617}
+  - 124: {fileID: 59400616}
+  - 92: {fileID: 59400615}
+  - 81: {fileID: 59400614}
+  - 114: {fileID: 59400619}
+  - 114: {fileID: 59400621}
+  - 114: {fileID: 59400620}
+  - 114: {fileID: 59400622}
+  m_Layer: 0
+  m_Name: Establishing Camera
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &59400614
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 59400613}
+  m_Enabled: 1
+--- !u!92 &59400615
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 59400613}
+  m_Enabled: 1
+--- !u!124 &59400616
+Behaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 59400613}
+  m_Enabled: 1
+--- !u!20 &59400617
+Camera:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 59400613}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 3
+  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: .300000012
+  far clip plane: 15000
+  field of view: 58.4000015
+  orthographic: 0
+  orthographic size: 355
+  m_Depth: 2
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294950623
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 0
+  m_OcclusionCulling: 0
+  m_StereoConvergence: 10
+  m_StereoSeparation: .0219999999
+  m_StereoMirrorMode: 0
+--- !u!4 &59400618
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 59400613}
+  m_LocalRotation: {x: .0624559373, y: .784561336, z: -.0783147141, w: .611906528}
+  m_LocalPosition: {x: -838, y: -11, z: -108}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 601780767}
+  m_RootOrder: 5
+--- !u!114 &59400619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 59400613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e82ab29f09794534b1821a2003f141c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slideAmt: {x: 55, y: -10, z: -25}
+  spinAmt: {x: -1, y: -4, z: 0}
+--- !u!114 &59400620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 59400613}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f8336b22d6d3af4da2712827e9ad333, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pluginPaths: []
+--- !u!114 &59400621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 59400613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1fd999d1b2cf94a45a5b0a47ce074bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - time: .092990987
+      value: .296823204
+      inSlope: 1.18051851
+      outSlope: 1.18051851
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  greenChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - time: .0929656625
+      value: .241079971
+      inSlope: 1.57519674
+      outSlope: 1.57519674
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  blueChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+    - time: .104190201
+      value: .412379622
+      inSlope: 1.16338599
+      outSlope: 1.16338599
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  useDepthCorrection: 0
+  zCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  depthRedChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  depthGreenChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  depthBlueChannel:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  saturation: 1.12
+  selectiveCc: 0
+  selectiveFromColor: {r: 1, g: 1, b: 1, a: 1}
+  selectiveToColor: {r: 1, g: 1, b: 1, a: 1}
+  mode: 0
+  updateTextures: 1
+  colorCorrectionCurvesShader: {fileID: 4800000, guid: 62bcade1028c24ca1a39760ed84b9487,
+    type: 3}
+  simpleColorCorrectionCurvesShader: {fileID: 4800000, guid: 438ddd58d82c84d9eb1fdc56111702e1,
+    type: 3}
+  colorCorrectionSelectiveShader: {fileID: 4800000, guid: e515e0f94cefc4c0db54b45cba621544,
+    type: 3}
+--- !u!114 &59400622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 59400613}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4739c22ef73ad62488fe344c8fe9addd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  strengthX: .150000006
+  strengthY: .150000006
+  fishEyeShader: {fileID: 4800000, guid: 874ceab4425f64bccb1d14032f4452b1, type: 3}
 --- !u!1 &65933656
 GameObject:
   m_ObjectHideFlags: 0
@@ -281,7 +554,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -1434,6 +1707,14 @@ Prefab:
       propertyPath: m_AnchoredPosition.y
       value: -2.0999999
       objectReference: {fileID: 0}
+    - target: {fileID: 118564, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 22348540, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9e855992468ab4ddcab2c21f329e637f, type: 2}
   m_IsPrefabParent: 0
@@ -1722,7 +2003,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -3124,7 +3405,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -4282,7 +4563,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -5448,7 +5729,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -6788,7 +7069,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -7815,6 +8096,7 @@ Transform:
   - {fileID: 330618411}
   - {fileID: 2033691664}
   - {fileID: 1107403888}
+  - {fileID: 59400618}
   m_Father: {fileID: 1777378300}
   m_RootOrder: 0
 --- !u!1 &609010490
@@ -7895,7 +8177,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -9293,7 +9575,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -10439,7 +10721,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -12047,7 +12329,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -13231,7 +13513,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -14363,7 +14645,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -15481,7 +15763,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -16871,7 +17153,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -17975,7 +18257,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -19065,7 +19347,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -20116,22 +20398,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 11494236, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
-      propertyPath: nearestTargetPuppet
-      value: 
-      objectReference: {fileID: 752522762}
-    - target: {fileID: 11494236, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
-      propertyPath: radarSphere
-      value: 
-      objectReference: {fileID: 1578421305}
-    - target: {fileID: 11494236, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
-      propertyPath: megaShipPuppet
-      value: 
-      objectReference: {fileID: 1867970657}
-    - target: {fileID: 11494236, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
-      propertyPath: mirrorZ
-      value: 
-      objectReference: {fileID: 1207430310}
     - target: {fileID: 11495370, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
       propertyPath: stretchFOV
       value: 
@@ -20148,7 +20414,26 @@ Prefab:
       propertyPath: missionTarget
       value: 
       objectReference: {fileID: 1038025679}
-    m_RemovedComponents: []
+    - target: {fileID: 11494236, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
+      propertyPath: nearestTargetPuppet
+      value: 
+      objectReference: {fileID: 752522762}
+    - target: {fileID: 11494236, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
+      propertyPath: radarSphere
+      value: 
+      objectReference: {fileID: 1578421305}
+    - target: {fileID: 11494236, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
+      propertyPath: megaShipPuppet
+      value: 
+      objectReference: {fileID: 1867970657}
+    - target: {fileID: 11494236, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
+      propertyPath: mirrorZ
+      value: 
+      objectReference: {fileID: 1207430310}
+    m_RemovedComponents:
+    - {fileID: 11491962, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
+    - {fileID: 11404980, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
+    - {fileID: 11407368, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: 0a827a31c7cc2473c89151dcd59c79ff, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &1275962116
@@ -20291,7 +20576,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -21445,7 +21730,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -22535,7 +22820,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -23667,7 +23952,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -24893,7 +25178,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -26057,7 +26342,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -27151,7 +27436,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -28721,7 +29006,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -29811,7 +30096,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -31057,7 +31342,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -32366,7 +32651,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -33674,7 +33959,7 @@ ParticleSystem:
   speed: 1
   randomSeed: 0
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   moveWithTransform: 0
   InitialModule:
@@ -34817,22 +35102,14 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 11460548, guid: 26211f59293c04c7cb981dfa2f26aa5c, type: 2}
-      propertyPath: of
-      value: 
-      objectReference: {fileID: 943545068}
     - target: {fileID: 11499602, guid: 26211f59293c04c7cb981dfa2f26aa5c, type: 2}
       propertyPath: of
       value: 
       objectReference: {fileID: 943545068}
-    - target: {fileID: 11489230, guid: 26211f59293c04c7cb981dfa2f26aa5c, type: 2}
-      propertyPath: numAllowed
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 6429922, guid: 26211f59293c04c7cb981dfa2f26aa5c, type: 2}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
+    - target: {fileID: 11460548, guid: 26211f59293c04c7cb981dfa2f26aa5c, type: 2}
+      propertyPath: of
+      value: 
+      objectReference: {fileID: 943545068}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 26211f59293c04c7cb981dfa2f26aa5c, type: 2}
   m_IsPrefabParent: 0

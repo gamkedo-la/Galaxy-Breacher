@@ -1989,7 +1989,7 @@ MonoBehaviour:
     Their music in particular. The harmonics are unlike anything I\u2019ve gathered
     in my research. I\u2019ve even attempted to compose a simple tune from their melodic
     structures, but was unable to complete the composition as I found myself feeling
-    somewhat.. distressed"
+    somewhat... distressed"
 --- !u!222 &277420630
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2189,6 +2189,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whichPanel: {fileID: 1049939396}
   thingToTurnOpposite: {fileID: 147307644}
+  disableSelf: 0
 --- !u!114 &387448989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2328,6 +2329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whichPanel: {fileID: 489822974}
   thingToTurnOpposite: {fileID: 147307644}
+  disableSelf: 0
 --- !u!114 &396774733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2539,6 +2541,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clearDialogConfirmPanel: {fileID: 0}
+  hideDragon: {fileID: 0}
 --- !u!114 &465541141
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7055,6 +7058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whichPanel: {fileID: 706496553}
   thingToTurnOpposite: {fileID: 147307644}
+  disableSelf: 0
 --- !u!114 &1376721543
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9791,6 +9795,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whichPanel: {fileID: 1950136147}
   thingToTurnOpposite: {fileID: 147307644}
+  disableSelf: 0
 --- !u!1 &1777378299
 GameObject:
   m_ObjectHideFlags: 0
@@ -9936,6 +9941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   whichPanel: {fileID: 1190469835}
   thingToTurnOpposite: {fileID: 147307644}
+  disableSelf: 0
 --- !u!114 &1833044965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11504,9 +11510,9 @@ MonoBehaviour:
   m_Text: "FILE = BREACHER\u2019S LOG: ENTRY BY HAREL\n\nENTRY 436: Any indication
     of articles S-Type or M-Type were not found aboard the Garvel. Thus, my search
     continues.\n\nSUPPLEMENT: I\u2019ve come to enjoy reading in my spare time. I
-    find it to be rather..stimulating. At times, I even find myself day-dreaming.
+    find it to be rather... stimulating. At times, I even find myself daydreaming.
     Of simple things, really. Children playing. The universe. A soul. I wonder its
-    purpose. And if the Vehrain day-dream as well.\n\nADD.SUPPLEMENT: \"We live as
+    purpose. And if the Vehrain daydream as well.\n\nADD.SUPPLEMENT: \"We live as
     we dream--alone.\"\n- Joseph Conrad, Heart of Darkness."
 --- !u!222 &1982322772
 CanvasRenderer:

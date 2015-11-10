@@ -1247,7 +1247,7 @@ ParticleSystem:
         rgba: 4285756273
       minMaxState: 2
     startSize:
-      scalar: 30
+      scalar: 23
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1262,7 +1262,7 @@ ParticleSystem:
         serializedVersion: 2
         m_Curve:
         - time: 0
-          value: .0333333351
+          value: .0434782617
           inSlope: 0
           outSlope: 0
           tangentMode: 0
@@ -1313,7 +1313,7 @@ ParticleSystem:
     enabled: 1
     m_Type: 0
     rate:
-      scalar: 15
+      scalar: 10
       maxCurve:
         serializedVersion: 2
         m_Curve:
@@ -1340,9 +1340,9 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
       minMaxState: 0
-    cnt0: 50
-    cnt1: 50
-    cnt2: 50
+    cnt0: 38
+    cnt1: 38
+    cnt2: 38
     cnt3: 30
     time0: .600000024
     time1: .850000024
@@ -2190,7 +2190,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: EmissionModule.rate.scalar
-      value: 15
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: lengthInSec
@@ -2199,6 +2199,26 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: moveWithTransform
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EmissionModule.cnt0
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EmissionModule.cnt1
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: EmissionModule.cnt2
+      value: 38
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: InitialModule.startSize.scalar
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: InitialModule.startSize.minCurve.m_Curve.Array.data[0].value
+      value: .0434782617
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

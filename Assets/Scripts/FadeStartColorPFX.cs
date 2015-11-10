@@ -38,12 +38,12 @@ public class FadeStartColorPFX : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(Time.time < timeStretch) {
+		if(Time.timeSinceLevelLoad < timeStretch) {
 			preferThisOverThat(logo1st, logo2nd);
 			if(scale1.enabled == false) {
 				scale1.enabled = true;
 			}
-		} else if(Time.time < timeStretch * 2.0) {
+		} else if(Time.timeSinceLevelLoad < timeStretch * 2.0) {
 			preferThisOverThat(logo2nd, logo1st);
 			if(scale2.enabled == false) {
 				scale2.enabled = true;

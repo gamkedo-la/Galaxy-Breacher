@@ -67,8 +67,14 @@ public class LaserPulseCannon : MonoBehaviour {
 			}
 
 			float missBy = inaccuracyArcMax;
-			Quaternion missQuat = Quaternion.AngleAxis(Random.Range(-missBy,missBy),Camera.main.transform.up);
-			missQuat = missQuat * Quaternion.AngleAxis(Random.Range(-missBy,missBy),Camera.main.transform.right);
+
+			if(Camera.main == null) {
+				missBy = 4.0f;
+			}
+
+			Transform aimRel = (Camera.main ? Camera.main.transform : PlayerControl.instance.transform);
+			Quaternion missQuat = Quaternion.AngleAxis(Random.Range(-missBy,missBy),aimRel.up);
+			missQuat = missQuat * Quaternion.AngleAxis(Random.Range(-missBy,missBy),aimRel.right);
 			Quaternion aimToFire = fireFromPos.rotation;
 			aimToFire = missQuat * aimToFire;
 			Vector3 skipBarrel = transform.forward;

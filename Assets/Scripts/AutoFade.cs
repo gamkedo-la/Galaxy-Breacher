@@ -49,7 +49,8 @@ public class AutoFade : MonoBehaviour
 		GL.PopMatrix();
 	}
 	
-	private IEnumerator Fade(float aFadeOutTime, float aFadeInTime, Color aColor)
+	private IEnumerator Fade(float aFadeOutTime, float aFadeInTime, Color aColor,
+	                         bool camSwap=false)
 	{
 		float t = 0.0f;
 		while (t<1.0f)
@@ -58,7 +59,9 @@ public class AutoFade : MonoBehaviour
 			t = Mathf.Clamp01(t + Time.deltaTime / aFadeOutTime);
 			DrawQuad(aColor,t);
 		}
-		if (m_LevelName != "")
+		if(camSwap) {
+			EstablishingView.instance.CameraSwap();
+		} else if (m_LevelName != "")
 			Application.LoadLevel(m_LevelName);
 		else
 			Application.LoadLevel(m_LevelIndex);
@@ -70,12 +73,22 @@ public class AutoFade : MonoBehaviour
 		}
 		m_Fading = false;
 	}
-	private void StartFade(float aFadeOutTime, float aFadeInTime, Color aColor)
+	private void StartFade(float aFadeOutTime, float aFadeInTime, Color aColor,
+	                       bool camSwap=false)
 	{
 		m_Fading = true;
-		StartCoroutine(Fade(aFadeOutTime, aFadeInTime, aColor));
+		StartCoroutine(Fade(aFadeOutTime, aFadeInTime, aColor, camSwap));
 	}
 	
+	public static void FadeOverCamera(Color aColor)
+	{
+		float aFadeOutTime, aFadeInTime;
+		aFadeOutTime = 0.7f;
+		aFadeInTime = 0.5f;
+		if (Fading) return;
+		Instance.StartFade(aFadeOutTime, aFadeInTime, aColor, true);
+	}
+
 	public static void LoadLevel(string aLevelName,Color aColor)
 	{
 		float aFadeOutTime, aFadeInTime;

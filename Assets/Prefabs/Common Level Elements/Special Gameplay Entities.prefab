@@ -28,7 +28,7 @@ GameObject:
   - 33: {fileID: 3300572}
   - 65: {fileID: 6529044}
   - 23: {fileID: 2339356}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: EnemyMegaShip (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 437706}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: enemy puppet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,7 +111,7 @@ GameObject:
   - 33: {fileID: 3379728}
   - 136: {fileID: 13670136}
   - 23: {fileID: 2320028}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 470314}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: MirrorZ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - 33: {fileID: 3375762}
   - 65: {fileID: 6532428}
   - 23: {fileID: 2310386}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: EnemyMegaShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ GameObject:
   - 33: {fileID: 3329072}
   - 64: {fileID: 6429922}
   - 23: {fileID: 2384762}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -295,7 +295,7 @@ GameObject:
   - 4: {fileID: 471060}
   - 33: {fileID: 3395830}
   - 23: {fileID: 2378364}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -327,7 +327,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 489064}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 3D UI Radar etc
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -344,7 +344,7 @@ GameObject:
   - 4: {fileID: 481032}
   - 33: {fileID: 3326082}
   - 23: {fileID: 2329434}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: default
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -359,7 +359,7 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 477660}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: GLBR_Enemy_Drone_V3_DL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -378,7 +378,7 @@ GameObject:
   - 135: {fileID: 13522276}
   - 23: {fileID: 2325436}
   - 114: {fileID: 11457250}
-  m_Layer: 5
+  m_Layer: 14
   m_Name: RadarSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   - 20: {fileID: 2071218}
   - 124: {fileID: 12454774}
   - 114: {fileID: 11499602}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: 3D UI Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -772,7 +772,7 @@ Camera:
   m_Depth: 2
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 32
+    m_Bits: 16416
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1007,7 +1007,7 @@ MeshCollider:
   m_GameObject: {fileID: 153640}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Convex: 0
   m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
@@ -1046,6 +1046,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99dc61b9c7c0f4ba68d19461ae7fc433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  megalaserDie: {fileID: 0}
   laserFire: {fileID: 8300000, guid: 6e807096314d6498b8390b07da2121a5, type: 3}
   rocketLaunch: {fileID: 8300000, guid: 03f9a4043492b46b192ef81e95c2a195, type: 3}
   playerHurt: {fileID: 8300000, guid: 56e80b72759f34a3eacce49d20932fd7, type: 3}
@@ -1121,7 +1122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numSpawned: 0
-  numAllowed: 2
+  numAllowed: 4
 --- !u!114 &11490188
 MonoBehaviour:
   m_ObjectHideFlags: 1

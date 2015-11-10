@@ -48,6 +48,11 @@ public class RadarManager : MonoBehaviour {
 		while(megaShipGO != null && megaShipGOParent != null) {
 			nearestTargets.Clear();
 			
+			if(Camera.main == null) {
+				yield return new WaitForSeconds(0.5f);
+				continue;
+			}
+
 			float halfWidth = Screen.width/2;
 			float halfHeight = Screen.height/2;
 
@@ -159,7 +164,7 @@ public class RadarManager : MonoBehaviour {
 
 	void OnGUI() {
 
-		if(megaShipGOParent) {
+		if(megaShipGOParent && Camera.main) {
 			foreach(Shootable option in nearestTargets) {
 				if(option) {
 					Vector3 position = Camera.main.WorldToScreenPoint(option.transform.position);

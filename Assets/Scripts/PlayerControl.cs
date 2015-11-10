@@ -226,13 +226,15 @@ public class PlayerControl : MonoBehaviour {
 			blast.transform.parent = transform;
 			Rigidbody myRB = GetComponent<Rigidbody>();
 			myRB.constraints = RigidbodyConstraints.None;
-			myRB.AddTorque(Random.onUnitSphere * 50.0f);
-			myRB.AddForce(Random.onUnitSphere * 1500.0f);
+			myRB.AddTorque(Random.onUnitSphere * 150.0f);
+			myRB.AddForce(Random.onUnitSphere * 1800.0f);
 			FinishedLevel();
-			SoundCenter.instance.PlayClipOn(
-				SoundCenter.instance.megashipBoom, 
-				Camera.main.transform.position, 1.0f,
-				Camera.main.transform);
+			if(Camera.main) {
+				SoundCenter.instance.PlayClipOn(
+					SoundCenter.instance.megashipBoom, 
+					Camera.main.transform.position, 1.0f,
+					Camera.main.transform);
+			}
 		}
 	}
 	
@@ -246,7 +248,7 @@ public class PlayerControl : MonoBehaviour {
 			PlayerDie();
 		}*/
 
-		if(isDead) {
+		if(isDead || Camera.main == null) {
 			return;
 		}
 

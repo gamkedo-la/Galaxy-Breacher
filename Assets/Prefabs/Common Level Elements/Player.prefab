@@ -219,7 +219,7 @@ Camera:
   m_Depth: 1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967007
+    m_Bits: 4294950623
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -855,7 +855,6 @@ MonoBehaviour:
   yawSpeed: 35
   dodgeSpeed: 135
   maxSpeed: 220
-  rocketReloadTime: 5
   cooldownTimeNeeded: 1.79999995
   timeBetweenShots: .100000001
   engineVolume: {fileID: 8299588}

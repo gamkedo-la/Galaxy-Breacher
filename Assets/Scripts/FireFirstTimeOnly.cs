@@ -24,6 +24,9 @@ public class FireFirstTimeOnly : MonoBehaviour {
 				dustToHide.SetActive(false);
 			}
 		}
+		if(Input.anyKeyDown) {
+			CloseOpening();
+		}
 	}
 
 	void CloseOpening() {

@@ -24,6 +24,10 @@ public class Shootable : MonoBehaviour {
 		}
 		alreadyKilledInChain = true;
 
+		if(isPlayer && Camera.main == null) {
+			return;
+		}
+
 		// Debug.Log ("KA BOOM");
 		if(reportDeath) {
 			SpawnTicketBooth.instance.reportDeath();
