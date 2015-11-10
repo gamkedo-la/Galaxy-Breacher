@@ -29,7 +29,7 @@ public class MouseLevelPicker : MonoBehaviour {
 			}
 
 			if(Input.GetMouseButton(0)) {
-				Application.LoadLevel(levName);
+				AutoFade.LoadLevel(levName, Color.white);
 			}
 			levNameShow.text = levNameStart + levName;
 		} else {

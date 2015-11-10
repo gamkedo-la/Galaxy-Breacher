@@ -6,6 +6,7 @@ public class GameStateStaticProgress : MonoBehaviour {
 	static public bool cheatsOn = false; // default for testing
 	static public bool uprightDodge = false;
 	public GameObject clearDialogConfirmPanel;
+	public GameObject hideDragon;
 
 	void Start() {
 		Toggle updateToggle = GetComponent<Toggle>();
@@ -23,29 +24,30 @@ public class GameStateStaticProgress : MonoBehaviour {
 
 	public void FairStart() {
 		cheatsOn = false;
-		Application.LoadLevel("Level Select");
+		AutoFade.LoadLevel("Level Select", Color.white);
 	}
 
 	public void CheatStart() {
 		cheatsOn = true;
-		Application.LoadLevel("Level Select");
+		AutoFade.LoadLevel("Level Select", Color.white);
 	}
 
 	public void WipeProgress() {
 		Debug.Log("Progress wiped");
 		PlayerPrefs.DeleteAll();
+		hideDragon.SetActive(false);
 		if(clearDialogConfirmPanel) {
 			clearDialogConfirmPanel.SetActive(true);
 		}
 	}
 
 	public void BackToTitle() {
-		Application.LoadLevel("TitleLogoSplashIntro");
+		AutoFade.LoadLevel("TitleLogoSplashIntro", Color.white);
 	}
 
 	public void WipeProgressAndReturnToTitle() {
 		PlayerPrefs.DeleteAll();
-		Application.LoadLevel("TitleLogoSplashIntro");
+		AutoFade.LoadLevel("TitleLogoSplashIntro", Color.white);
 	}
 
 	public void CheatToggle(bool newValue) {

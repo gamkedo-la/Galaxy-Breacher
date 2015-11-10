@@ -239,7 +239,7 @@ public class PlayerControl : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if(Input.GetKeyDown(KeyCode.Escape)) {
-			Application.LoadLevel("Level Select");
+			AutoFade.LoadLevel("Level Select", Color.white);
 		}
 
 		/*if(Input.GetKeyDown(KeyCode.P)) {
@@ -505,6 +505,6 @@ public class PlayerControl : MonoBehaviour {
 
 	IEnumerator ReturnToLevelSelectAfterWait() {
 		yield return new WaitForSeconds(5.75f);
-		Application.LoadLevel("Level Select");
+		AutoFade.LoadLevel("Level Select", Color.white);
 	}
 }

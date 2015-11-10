@@ -79,7 +79,7 @@ public class HardPointCounter : MonoBehaviour {
 			if(PlayerControl.instance) {
 				PlayerControl.instance.FinishedLevel();
 			} else {
-				Application.LoadLevel("Level Select");
+				AutoFade.LoadLevel("Level Select", Color.white);
 			}
 		}
 	}
